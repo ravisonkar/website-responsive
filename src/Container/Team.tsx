@@ -1,42 +1,61 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Table from 'react-bootstrap/Table';
 
 class Team extends React.Component {
   render() {
     return (
       <Container>
         <Row className="m-3">
-          <table className="table table-dark">
+          <Table striped bordered hover>
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Gender</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Saigita</td>
+                <td>saigita@theprocedure.in</td>
+                <td>9844565767</td>
+                <td>Female</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>Sachin</td>
+                <td>sachin@theprocedure.in</td>
+                <td>9656554544</td>
+                <td>Male</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>Ravi</td>
+                <td>ravi@theprocedure.in</td>
+                <td>96545454545</td>
+                <td>Male</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Pankaj</td>
+                <td>pankaj@theprocedure.in</td>
+                <td>96545454545</td>
+                <td>Male</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Rohit</td>
+                <td>rohit@theprocedure.in</td>
+                <td>96545454545</td>
+                <td>Male</td>
               </tr>
             </tbody>
-          </table>
+          </Table>
         </Row>
       </Container>
     );
