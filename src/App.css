@@ -32,5 +32,8 @@ li {
   font-weight: 60px;
 }
 .footer {
-  margin-top: 130px;
+  border-top: 1px solid grey;
+}
+.made-by {
+  margin-left: 30%;
 }

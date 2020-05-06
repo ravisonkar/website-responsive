@@ -5,49 +5,24 @@ import Container from 'react-bootstrap/Container';
 
 function Footer() {
   return (
-    <div className="bg-dark footer">
-      <Container>
-        <Row>
-          <Col>
-            <ul className="m-3">
-              <li>Home</li>
-              <li>About</li>
-              <li>New</li>
-              <li>h</li>
-              <li>hdcb</li>
-            </ul>
-          </Col>
-          <Col>
-            <ul className="m-3">
-              <li>Home</li>
-              <li>About</li>
-              <li>New</li>
-              <li>h</li>
-              <li>hdcb</li>
-            </ul>
-          </Col>
-          ,
-          <Col>
-            <ul className="m-3">
-              <li>Home</li>
-              <li>About</li>
-              <li>New</li>
-              <li>h</li>
-              <li>hdcb</li>
-            </ul>
-          </Col>
-          <Col>
-            <ul className="m-3">
-              <li>Home</li>
-              <li>About</li>
-              <li>New</li>
-              <li>h</li>
-              <li>hdcb</li>
-            </ul>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <footer className="fixed-bottom bg-white">
+      <div className="footer">
+        <Container>
+          <Row className="mt-3">
+            <Col>
+              <p>
+                <a href="/">Terms & conditions</a> | Copyright
+              </p>
+            </Col>
+            <Col>
+              <div className="float-right">
+                Made With Full Of Happiness By Team
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </footer>
   );
 }
 export default Footer;
