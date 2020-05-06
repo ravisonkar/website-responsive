@@ -18,7 +18,7 @@ class Header extends React.Component<HeaderProps> {
     console.log(this.props.currentPath);
     return (
       <Navbar bg="transparent" expand="lg">
-        <Link to="/home" className="text-dark mr-3">
+        <Link to="/" className="text-dark mr-3">
           <img className="image" src="logo.png" />
         </Link>
         <NavbarToggle aria-controls="basic-navbar-nav" />

@@ -21,7 +21,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
   private routes = (
     <Switch>
       <Route
-        path="/home"
+        path="/"
         exact={true}
         render={() => {
           return <Home></Home>;
