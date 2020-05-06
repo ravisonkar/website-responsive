@@ -5,6 +5,8 @@ import Home from '../Container/Home';
 import About from '../Container/About';
 import Team from '../Container/Team';
 import Footer from '../Component/Footer';
+import AddEmployee from '../Container/AddEmployee';
+
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
     console.log('ksjvn');
@@ -37,6 +39,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
         exact={false}
         render={() => {
           return <Team></Team>;
+        }}
+      ></Route>
+      <Route
+        path="/event/add"
+        exact={false}
+        render={() => {
+          return <AddEmployee></AddEmployee>;
         }}
       ></Route>
     </Switch>
