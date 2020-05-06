@@ -1,12 +1,13 @@
 import React from 'react';
 import AddFormEmployee from '../Component/AddFormEmploye';
+import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
 
-// interface EmployeState {
-//   shouldRedirectToEmployeeEventForm: boolean;
-// }
+interface EmployeState {
+  shouldRedirectToEmployeeEventForm: boolean;
+}
 
-class AddEmployee extends React.Component {
+class AddEmployee extends React.Component<RouteComponentProps, EmployeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
   };
