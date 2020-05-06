@@ -8,7 +8,6 @@ body {
 .link:hover {
   text-decoration: none;
   list-style: none;
-  font-size: 21px;
 }
 .link {
   font-size: 20px;
