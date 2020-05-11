@@ -5,10 +5,10 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import { Redirect } from 'react-router';
-import { RouteComponentProps } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // interface TeamState {
-//   shouldRedirectToEmployeeEventForm: boolean;
+//   shouldRedirectToEmployeeEventForm: boolean;+1
 // }
 
 class Team extends React.Component {
@@ -29,13 +29,14 @@ class Team extends React.Component {
               </Col>
               <Col>
                 <Button
-                  className="float-right"
+                  className="float-right m1-3"
                   onClick={() => {
                     this.setState({
                       shouldRedirectToEmployeeEventForm: true,
                     });
                   }}
                 >
+                  <FontAwesomeIcon icon="plus" className="mr-3" />
                   <strong>Add</strong>
                 </Button>
               </Col>

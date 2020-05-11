@@ -29,23 +29,23 @@ class InternalContainer extends React.Component<RouteComponentProps> {
       ></Route>
       <Route
         path="/about"
-        exact={false}
+        exact={true}
         render={() => {
           return <About></About>;
         }}
       ></Route>
       <Route
         path="/team"
-        exact={false}
+        exact={true}
         render={() => {
           return <Team></Team>;
         }}
       ></Route>
       <Route
         path="/event/add"
-        exact={false}
-        render={() => {
-          return <AddEmployee></AddEmployee>;
+        exact={true}
+        render={(props) => {
+          return <AddEmployee {...props}></AddEmployee>;
         }}
       ></Route>
     </Switch>
