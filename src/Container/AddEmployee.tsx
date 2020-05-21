@@ -3,7 +3,7 @@ import AddFormEmployee from '../Component/AddFormEmploye';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import iEmploye from '../Container/iEmploye';
+import iEmploye from '../classes/iEmploye';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
@@ -34,13 +34,15 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeState> {
     val: '',
   };
 
-  onMychangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  onMychangeHandler = (event: any) => {
+    event.persist();
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value,
     });
   };
   onMySubmitHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.persist();
     let datauser = [
       {
         name: this.state.name,
@@ -55,7 +57,6 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeState> {
       data: [...datauser, ...this.state.data],
     });
     event.preventDefault();
-    alert('you are submitting');
     console.log(this.state.data);
   };
 

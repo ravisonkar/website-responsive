@@ -1,0 +1,97 @@
+{
+  "customers": [
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "email": "sonkarravi44@gmail.com",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "id": 3
+    }
+  ],
+  "login": [
+    {
+      "username": "sonkar@gmail.com",
+      "password": "879",
+      "usertype": "k",
+      "id": 10
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "yugfuygyug",
+      "usertype": "fgvuykgjmgc",
+      "id": 11
+    },
+    {
+      "username": "sjvnds@gmail.com",
+      "password": "tygfytfu",
+      "usertype": "uytgfyutgli",
+      "id": 12
+    },
+    {
+      "username": "uyguyg@gmail.com",
+      "password": "kshcb",
+      "usertype": "sajcb adjhcd",
+      "id": 13
+    },
+    {
+      "username": "ygvjhbvgjhbg",
+      "password": "akjdkshn",
+      "usertype": "jhad",
+      "id": 14
+    },
+    {
+      "username": "uyguyg@gmail.com",
+      "password": "akjdkshn",
+      "usertype": "jhad",
+      "id": 15
+    },
+    {
+      "username": "ahjcabdhjb@gmail.com",
+      "password": "trfyguhij",
+      "usertype": "fcghjn",
+      "id": 16
+    },
+    {
+      "login": {},
+      "username": "jdbzc@gmauil.com",
+      "password": "jhabcs",
+      "usertype": "jahbj",
+      "id": 17
+    },
+    {
+      "login": {},
+      "id": 18
+    },
+    {
+      "login": {},
+      "username": "jbdz@gmail.com",
+      "password": "ajdbc",
+      "usertype": "ajhdc",
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "login": {},
+      "username": "skshjdhjd@gmail.com",
+      "password": "kjsnf",
+      "usertype": "jnkf",
+      "id": 21
+    },
+    {
+      "username": "",
+      "password": "",
+      "usertype": "",
+      "id": 22
+    },
+    {
+      "username": "",
+      "password": "",
+      "usertype": "",
+      "id": 23
+    }
+  ]
+}

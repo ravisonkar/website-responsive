@@ -2,20 +2,21 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import { VoidHandler } from '../Component/types';
+import { VoidHandler } from '../shared/types';
 import Select from 'react-select';
 import Dropdown from 'react-dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import iEmploye from '../Container/iEmploye';
+import iEmploye from '../classes/iEmploye';
 import 'react-dropdown/style.css';
+
 type EventHandler = (event: any) => void;
 interface AddFormEmployeeProps {
   onCancelClick: VoidHandler;
   onMychangeHandler: EventHandler;
-  // data: iEmploye;
   onMySubmitHandler: EventHandler;
   searchEventHandler: EventHandler;
+  // data: iEmploye;
 }
 interface IBusinessUnit {
   label: string;
@@ -51,10 +52,10 @@ const detail = [
 const AddFormEmployee = ({
   onCancelClick,
   onMychangeHandler,
-  // data,
   onMySubmitHandler,
   searchEventHandler,
-}: AddFormEmployeeProps) => {
+}: // data,
+AddFormEmployeeProps) => {
   return (
     <Row>
       <Container>

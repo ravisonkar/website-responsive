@@ -16,7 +16,7 @@ class About extends React.Component {
               </h1>
             </div>
             <div className="text-center">
-              <img className="w-75" src="logo.png" />
+              <img className="w-75" src="assets/image/logo.png" />
             </div>
           </Row>
           <h1 className="mt-3 pt-3">Our Culture</h1>
