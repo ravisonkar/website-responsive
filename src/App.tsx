@@ -1,10 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes/index';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faPencilAlt,
+  faToggleOn,
+  faToggleOff,
+  faCaretDown,
+  faCaretUp,
+  faPlus,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+library.add(
+  faPencilAlt,
+  faToggleOn,
+  faToggleOff,
+  faCaretDown,
+  faCaretUp,
+  faPlus,
+  faTrash
+);
 
 function App() {
-  return <div className="text-primary">sjgh</div>;
+  console.log('dfhb');
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes></Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

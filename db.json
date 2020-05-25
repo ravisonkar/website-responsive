@@ -1,0 +1,145 @@
+{
+  "customers": [
+    {
+      "first_name": "sai",
+      "last_name": "gita",
+      "email": "saigita@theprocedure.in",
+      "phone": "9776545444",
+      "address": "mumbai",
+      "description": "employee",
+      "id": 1
+    },
+    {
+      "first_name": "sachin",
+      "last_name": "yadav",
+      "email": "sachin@theporcedecure.in",
+      "phone": "987654321",
+      "address": "mumbai",
+      "description": "employee",
+      "id": 2
+    },
+    {
+      "first_name": "pankaj",
+      "last_name": "seth",
+      "email": "pankaj@theprocdure.in",
+      "phone": "987654321",
+      "address": "marine lines",
+      "description": "employee",
+      "id": 3
+    },
+    {
+      "first_name": "ravi",
+      "last_name": "sonkar",
+      "email": "ravi@theperocedure.in",
+      "phone": "987654321",
+      "address": "worli",
+      "description": "employee",
+      "id": 4
+    },
+    {
+      "first_name": "ankit ",
+      "last_name": "mishra",
+      "email": "ankit@theprocedure.in",
+      "phone": "987654321",
+      "address": "kalyan",
+      "description": "employee",
+      "id": 7
+    }
+  ],
+  "login": [
+    {
+      "username": "sonkar@gmail.com",
+      "password": "879",
+      "usertype": "k",
+      "id": 10
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "yugfuygyug",
+      "usertype": "fgvuykgjmgc",
+      "id": 11
+    },
+    {
+      "username": "sjvnds@gmail.com",
+      "password": "tygfytfu",
+      "usertype": "uytgfyutgli",
+      "id": 12
+    },
+    {
+      "username": "uyguyg@gmail.com",
+      "password": "kshcb",
+      "usertype": "sajcb adjhcd",
+      "id": 13
+    },
+    {
+      "username": "ygvjhbvgjhbg",
+      "password": "akjdkshn",
+      "usertype": "jhad",
+      "id": 14
+    },
+    {
+      "username": "uyguyg@gmail.com",
+      "password": "akjdkshn",
+      "usertype": "jhad",
+      "id": 15
+    },
+    {
+      "username": "ahjcabdhjb@gmail.com",
+      "password": "trfyguhij",
+      "usertype": "fcghjn",
+      "id": 16
+    },
+    {
+      "login": {},
+      "username": "jdbzc@gmauil.com",
+      "password": "jhabcs",
+      "usertype": "jahbj",
+      "id": 17
+    },
+    {
+      "login": {},
+      "id": 18
+    },
+    {
+      "login": {},
+      "username": "jbdz@gmail.com",
+      "password": "ajdbc",
+      "usertype": "ajhdc",
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "login": {},
+      "username": "skshjdhjd@gmail.com",
+      "password": "kjsnf",
+      "usertype": "jnkf",
+      "id": 21
+    },
+    {
+      "username": "",
+      "password": "",
+      "usertype": "",
+      "id": 22
+    },
+    {
+      "username": "",
+      "password": "",
+      "usertype": "",
+      "id": 23
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "ytfgy",
+      "usertype": "uyguyg",
+      "id": 24
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "hdft",
+      "usertype": "uygtu",
+      "id": 25
+    }
+  ]
+}
