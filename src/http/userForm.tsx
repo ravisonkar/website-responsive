@@ -1,8 +1,6 @@
 import axios from 'axios';
-import iUserForm from '../classes/inew';
-import { valueEventAriaMessage } from 'react-select/src/accessibility';
 
-export const addUserFormRequest = (data: iUserForm) => {
+export const addUserFormRequest = (data: any) => {
   return axios
     .post(`http://localhost:5000/customers`, data)
     .then((value) => value.data);

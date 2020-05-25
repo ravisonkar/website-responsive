@@ -7,7 +7,7 @@ import { withCookies, Cookies } from 'react-cookie';
 import { RouteComponentProps } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ilogin from '../classes/ilogin';
+import ilogin from '../classes/Ilogin';
 
 interface iloginstate {
   username: string;
@@ -28,26 +28,6 @@ class Login extends React.PureComponent<
     username: '',
     password: '',
     usertype: '',
-  };
-
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.persist();
-    this.setState({
-      ...this.state,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleSubmit = (event: any) => {
-    event.persist();
-    let data = {
-      ...this.state,
-    };
-    axios.post(`http://localhost:5000/login`, data);
-    this.savehandler(this.state.username);
-  };
-  savehandler = (name: string) => {
-    this.props.cookies.set('KJHKJ', name, { path: '/' });
   };
 
   render() {
@@ -99,5 +79,26 @@ class Login extends React.PureComponent<
       </Row>
     );
   }
+
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.persist();
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleSubmit = (event: any) => {
+    event.persist();
+    let data = {
+      ...this.state,
+    };
+    axios.post(`http://localhost:5000/login`, data);
+    this.saveUserhandler(this.state.username);
+  };
+
+  saveUserhandler = (name: string) => {
+    this.props.cookies.set('user', name, { path: '/' });
+  };
 }
 export default withCookies(Login);

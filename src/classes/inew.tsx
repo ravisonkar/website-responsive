@@ -1,4 +1,4 @@
-export default interface iUserForm {
+export default interface IUserForm {
   first_name: string;
   last_name: string;
   email: string;

@@ -1,13 +1,49 @@
 {
   "customers": [
     {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sonkarravi44@gmail.com",
-      "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
+      "first_name": "sai",
+      "last_name": "gita",
+      "email": "saigita@theprocedure.in",
+      "phone": "9776545444",
+      "address": "mumbai",
+      "description": "employee",
+      "id": 1
+    },
+    {
+      "first_name": "sachin",
+      "last_name": "yadav",
+      "email": "sachin@theporcedecure.in",
+      "phone": "987654321",
+      "address": "mumbai",
+      "description": "employee",
+      "id": 2
+    },
+    {
+      "first_name": "pankaj",
+      "last_name": "seth",
+      "email": "pankaj@theprocdure.in",
+      "phone": "987654321",
+      "address": "marine lines",
+      "description": "employee",
       "id": 3
+    },
+    {
+      "first_name": "ravi",
+      "last_name": "sonkar",
+      "email": "ravi@theperocedure.in",
+      "phone": "987654321",
+      "address": "worli",
+      "description": "employee",
+      "id": 4
+    },
+    {
+      "first_name": "ankit ",
+      "last_name": "mishra",
+      "email": "ankit@theprocedure.in",
+      "phone": "987654321",
+      "address": "kalyan",
+      "description": "employee",
+      "id": 7
     }
   ],
   "login": [
@@ -92,6 +128,18 @@
       "password": "",
       "usertype": "",
       "id": 23
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "ytfgy",
+      "usertype": "uyguyg",
+      "id": 24
+    },
+    {
+      "username": "sonkarravi44@gmail.com",
+      "password": "hdft",
+      "usertype": "uygtu",
+      "id": 25
     }
   ]
 }

@@ -3,15 +3,15 @@ import Header from '../Component/Header';
 import { Switch, Route, RouteComponentProps } from 'react-router';
 import Home from '../Container/Home';
 import About from '../Container/About';
-import Team from '../Container/Team';
+import EmployeList from './EmployeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import New from './AddUserForm';
 import List from '../Container/List';
 import Login from './login';
+
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
-    console.log('ksjvn');
     return (
       <div>
         <Header currentPath={this.props.location.pathname}></Header>
@@ -20,6 +20,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
       </div>
     );
   }
+
   private routes = (
     <Switch>
       <Route
@@ -37,14 +38,21 @@ class InternalContainer extends React.Component<RouteComponentProps> {
         }}
       ></Route>
       <Route
-        path="/team"
+        path="/employelist"
         exact={true}
-        render={() => {
-          return <Team></Team>;
+        render={(props) => {
+          return <EmployeList {...props}></EmployeList>;
         }}
       ></Route>
       <Route
         path="/event/add"
+        exact={true}
+        render={(props) => {
+          return <AddEmployee {...props}></AddEmployee>;
+        }}
+      ></Route>
+      <Route
+        path="/event/add:id"
         exact={true}
         render={(props) => {
           return <AddEmployee {...props}></AddEmployee>;
@@ -61,7 +69,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
       <Route
         path="/newdata:id"
         exact={true}
-        render={(props) => {
+        render={() => {
           return <New></New>;
         }}
       ></Route>

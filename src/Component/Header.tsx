@@ -27,9 +27,9 @@ class Header extends React.Component<HeaderProps> {
             </Link>
 
             <Link
-              to="/team"
+              to="/employelist"
               className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/team') ? 'active' : ''
+                this.props.currentPath.includes('/employelist') ? 'active' : ''
               }`}
             >
               Team

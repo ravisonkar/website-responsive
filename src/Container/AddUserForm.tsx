@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import iEmploye from '../classes/iEmploye';
+import iEmploye from '../classes/IEmploye';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,19 +8,10 @@ import { useParams, Redirect } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import iUserForm from '../classes/inew';
-
-const defaultValues: iUserForm = {
-  first_name: '',
-  last_name: '',
-  email: '',
-  phone: '',
-  address: '',
-  description: '',
-};
+import IUserForm from '../classes/INew';
 
 const New = () => {
-  const [values, setvalue] = useState(defaultValues as iUserForm);
+  const [values, setvalue] = useState({} as IUserForm);
 
   const handleChange = (event: any) => {
     event.persist();
@@ -43,8 +34,8 @@ const New = () => {
 
   const getData = async () => {
     try {
-      const customer = await editUserFormRequest(id);
-      await setvalue(customer);
+      const userData = await editUserFormRequest(id);
+      await setvalue(userData);
     } catch (error) {
       console.log(error);
     }
@@ -60,42 +51,32 @@ const New = () => {
         <Form>
           <div className="mb-3">
             <h3>Enter The Details</h3>
-            {/* <Select
-              name="university"
-              options={detail}
-              onChange={(value) => searchEventHandler(value)}
-            /> */}
-            {/* <Dropdown
-              options={detail}
-              onChange={searchEventHandler}
-              placeholder="Select an option"
-            /> */}
           </div>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter firstname</Form.Label>
+            <Form.Label>FirstName</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter firstname"
+              placeholder="First Name"
               onChange={handleChange}
               name="first_name"
               value={values.first_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter lastname</Form.Label>
+            <Form.Label>LastName</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter email"
+              placeholder="Last Name"
               onChange={handleChange}
               name="last_name"
               value={values.last_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Email"
               onChange={handleChange}
               name="email"
               value={values.email}
@@ -103,30 +84,30 @@ const New = () => {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Phone number</Form.Label>
+            <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="phonenumber"
-              placeholder="Phonenumber"
+              placeholder="Phone Number"
               onChange={handleChange}
               name="phone"
               value={values.phone}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter firstname</Form.Label>
+            <Form.Label>Address</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter firstname"
+              placeholder="Address"
               onChange={handleChange}
               name="address"
               value={values.address}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter firstname</Form.Label>
+            <Form.Label>Description</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter firstname"
+              placeholder="Description"
               onChange={handleChange}
               name="description"
               value={values.description}
