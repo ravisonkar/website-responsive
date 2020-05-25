@@ -2,58 +2,31 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import { VoidHandler } from '../Component/types';
+import { VoidHandler } from '../shared/types';
+import ITeam from '../classes/ITeam';
+import { RouteComponentProps } from 'react-router';
 import Select from 'react-select';
 import Dropdown from 'react-dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import iEmploye from '../Container/iEmploye';
+import IOption from '../classes/IEmploye';
 import 'react-dropdown/style.css';
+
 type EventHandler = (event: any) => void;
 interface AddFormEmployeeProps {
   onCancelClick: VoidHandler;
   onMychangeHandler: EventHandler;
-  // data: iEmploye;
   onMySubmitHandler: EventHandler;
   searchEventHandler: EventHandler;
+  data: ITeam;
 }
-interface IBusinessUnit {
-  label: string;
-  value: string;
-}
-const detail = [
-  {
-    value: 'stanford',
-    label: 'Stanfordxfjngfkjd',
-  },
-  {
-    value: 'Stanford University',
-    label: 'Stanford',
-  },
-  {
-    value: 'Stanford University',
-    label: 'Stanford',
-  },
-  {
-    value: 'Stanford University',
-    label: 'Stanford',
-  },
-  {
-    value: 'Stanford University',
-    label: 'Stanford',
-  },
-  {
-    value: 'Stanford University',
-    label: 'Stanford',
-  },
-];
 
 const AddFormEmployee = ({
   onCancelClick,
   onMychangeHandler,
-  // data,
   onMySubmitHandler,
   searchEventHandler,
+  data,
 }: AddFormEmployeeProps) => {
   return (
     <Row>
@@ -61,52 +34,66 @@ const AddFormEmployee = ({
         <Form>
           <div className="mb-3">
             <h3>Enter The Details</h3>
-            {/* <Select
-              name="university"
-              options={detail}
-              onChange={(value) => searchEventHandler(value)}
-            /> */}
-            {/* <Dropdown
-              options={detail}
-              onChange={searchEventHandler}
-              placeholder="Select an option"
-            /> */}
           </div>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter firstname</Form.Label>
+            <Form.Label>First Name</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter firstname"
+              placeholder="First Name"
               onChange={onMychangeHandler}
-              name="name"
+              name="first_name"
+              value={data.first_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Enter lastname</Form.Label>
+            <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="name"
-              placeholder="Enter email"
+              placeholder="Last Name"
               onChange={onMychangeHandler}
-              name="lastname"
+              name="last_name"
+              value={data.last_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Email Address"
               onChange={onMychangeHandler}
               name="email"
+              value={data.email}
             />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Phone number</Form.Label>
+            <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="phonenumber"
-              placeholder="Phonenumber"
+              placeholder="Phone Number"
               onChange={onMychangeHandler}
-              name="phonenumber"
+              name="phone"
+              value={data.phone}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="name"
+              placeholder="Description"
+              onChange={onMychangeHandler}
+              name="description"
+              value={data.description}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type="name"
+              placeholder="Address"
+              onChange={onMychangeHandler}
+              name="address"
+              value={data.address}
             />
           </Form.Group>
           <Button

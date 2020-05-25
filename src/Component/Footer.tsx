@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 function Footer() {
   return (
-    <footer className="fixed-bottom bg-white">
+    <footer className="fixed-bottom  bg-white">
       <div className="footer">
         <Container>
           <Row className="mt-3">

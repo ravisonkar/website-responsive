@@ -12,7 +12,7 @@ class Header extends React.Component<HeaderProps> {
     return (
       <Navbar bg="transparent" expand="lg">
         <Link to="/" className="text-dark mr-3">
-          <img className="image" src="assets/image/logo.png" />
+          <img className="image" src="logo.png" />
         </Link>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
@@ -27,9 +27,9 @@ class Header extends React.Component<HeaderProps> {
             </Link>
 
             <Link
-              to="/employelist"
+              to="/team"
               className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/employelist') ? 'active' : ''
+                this.props.currentPath.includes('/team') ? 'active' : ''
               }`}
             >
               Team

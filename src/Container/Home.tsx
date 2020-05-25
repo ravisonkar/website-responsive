@@ -15,7 +15,7 @@ class Home extends React.Component {
         </Row>
         <Row>
           <Col className="text-center">
-            <img className="w-50 " src="logo.png" />
+            <img className="w-50 " src="assets/image/logo.png" />
           </Col>
         </Row>
       </Container>

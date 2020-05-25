@@ -11,6 +11,7 @@ import {
   faCaretDown,
   faCaretUp,
   faPlus,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 library.add(
   faPencilAlt,
@@ -18,7 +19,8 @@ library.add(
   faToggleOff,
   faCaretDown,
   faCaretUp,
-  faPlus
+  faPlus,
+  faTrash
 );
 
 function App() {
