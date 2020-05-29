@@ -58,6 +58,14 @@ class Header extends React.Component<HeaderProps> {
             >
               user
             </Link>
+            <Link
+              to="/login"
+              className={`text-dark mr-3 link ${
+                this.props.currentPath.includes('/user') ? 'active' : ''
+              }`}
+            >
+              Login
+            </Link>
           </Nav>
         </NavbarCollapse>
       </Navbar>
