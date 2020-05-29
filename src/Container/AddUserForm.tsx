@@ -8,7 +8,7 @@ import { useParams, Redirect } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import IUserForm from '../classes/INew';
+import IUserForm from '../classes/Inew';
 
 const New = () => {
   const [values, setvalue] = useState({} as IUserForm);
