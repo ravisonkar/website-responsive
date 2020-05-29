@@ -38,7 +38,7 @@ const AddFormEmployee = ({
           <Form.Group controlId="formBasicEmail">
             <Form.Label>First Name</Form.Label>
             <Form.Control
-              type="name"
+              type="text"
               placeholder="First Name"
               onChange={onMychangeHandler}
               name="first_name"
@@ -48,7 +48,7 @@ const AddFormEmployee = ({
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
-              type="name"
+              type="text"
               placeholder="Last Name"
               onChange={onMychangeHandler}
               name="last_name"
@@ -58,7 +58,7 @@ const AddFormEmployee = ({
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Email Address"
               onChange={onMychangeHandler}
               name="email"
@@ -66,30 +66,29 @@ const AddFormEmployee = ({
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group controlId="formBasicEmail">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              type="phonenumber"
+              type="text"
               placeholder="Phone Number"
               onChange={onMychangeHandler}
               name="phone"
               value={data.phone}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group controlId="formBasicEmail">
             <Form.Label>Description</Form.Label>
             <Form.Control
-              type="name"
-              placeholder="Description"
+              placeholder="text"
               onChange={onMychangeHandler}
               name="description"
               value={data.description}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group controlId="formBasicEmail">
             <Form.Label>Address</Form.Label>
             <Form.Control
-              type="name"
+              type="text"
               placeholder="Address"
               onChange={onMychangeHandler}
               name="address"
@@ -98,13 +97,12 @@ const AddFormEmployee = ({
           </Form.Group>
           <Button
             variant="primary"
-            type="submit"
             className="mr-3"
             onClick={onMySubmitHandler}
           >
             Submit
           </Button>
-          <Button variant="primary" onClick={onCancelClick}>
+          <Button variant="outline-secondary" onClick={onCancelClick}>
             Cancel
           </Button>
         </Form>

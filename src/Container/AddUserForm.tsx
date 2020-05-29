@@ -35,7 +35,7 @@ const New = () => {
   const getData = async () => {
     try {
       const userData = await editUserFormRequest(id);
-      await setvalue(userData);
+      setvalue(userData);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +55,6 @@ const New = () => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>FirstName</Form.Label>
             <Form.Control
-              type="name"
               placeholder="First Name"
               onChange={handleChange}
               name="first_name"
@@ -65,7 +64,7 @@ const New = () => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>LastName</Form.Label>
             <Form.Control
-              type="name"
+              type="text"
               placeholder="Last Name"
               onChange={handleChange}
               name="last_name"
@@ -86,7 +85,7 @@ const New = () => {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              type="phonenumber"
+              type="text"
               placeholder="Phone Number"
               onChange={handleChange}
               name="phone"
@@ -96,7 +95,7 @@ const New = () => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Address</Form.Label>
             <Form.Control
-              type="name"
+              type="text"
               placeholder="Address"
               onChange={handleChange}
               name="address"
@@ -106,7 +105,7 @@ const New = () => {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Description</Form.Label>
             <Form.Control
-              type="name"
+              type="y"
               placeholder="Description"
               onChange={handleChange}
               name="description"
