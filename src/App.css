@@ -18,7 +18,7 @@ body {
 }
 
 .active {
-  background-color: lightslategray;
+  background-color: rgb(159, 219, 235);
   color: whitesmoke;
   padding: 3px;
   border-radius: 5px;

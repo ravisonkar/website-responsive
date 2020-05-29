@@ -6,7 +6,11 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ITeam from '../classes/ITeam';
 import Container from 'react-bootstrap/Container';
-import { addUserFormRequest, editUserFormRequest } from '../http/userForm';
+import {
+  addUserFormRequest,
+  editUserFormRequest,
+  updateUserFormRequest,
+} from '../http/userForm';
 interface EmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   data: ITeam;
@@ -26,7 +30,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
 
   render() {
     if (this.state.shouldRedirectToEmployeeEventForm) {
-      return <Redirect to="/employelist"></Redirect>;
+      return <Redirect to="/employees"></Redirect>;
     }
 
     return (
@@ -48,8 +52,14 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
       ...this.state,
     };
     try {
-      await addUserFormRequest(data);
-      this.setState({ shouldRedirectToEmployeeEventForm: true });
+      let { id }: any = this.props.match?.params;
+      console.log(id);
+      if (id) {
+        this.setState({ shouldRedirectToEmployeeEventForm: true });
+        await updateUserFormRequest(data, id);
+      } else {
+        await addUserFormRequest(data);
+      }
     } catch (error) {
       console.error(error);
     }

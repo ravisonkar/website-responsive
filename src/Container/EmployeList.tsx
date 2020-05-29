@@ -33,7 +33,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
 
   render() {
     if (this.state.shouldRedirectToEmployeeEventForm) {
-      return <Redirect to="/event/add"></Redirect>;
+      return <Redirect to="/employee/add"></Redirect>;
     }
 
     return (
@@ -42,7 +42,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
           <Col>
             <Row className="mb-3">
               <Col>
-                <h3>Details Of Employee</h3>
+                <h3>Employee List</h3>
               </Col>
               <Col>
                 <Button
@@ -75,21 +75,21 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
                 {this.state.employeUsers.map((employeUser, index) => {
                   return (
                     <tr>
-                      <th>{employeUser.id}</th>
+                      <th>{employeUser._id}</th>
                       <td>{employeUser.name}</td>
                       <td>{employeUser.email}</td>
                       <td>{employeUser.phone}</td>
                       <td>{employeUser.address}</td>
                       <td>{employeUser.description}</td>
                       <td>
-                        <Link to={`event/add${employeUser.id}`}>
+                        <Link to={`/employee${employeUser._id}`}>
                           <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                         </Link>
                       </td>
                       <td>
                         <span
                           onClick={(e) =>
-                            this.deleteUserData(e, employeUser.id)
+                            this.deleteUserData(e, employeUser._id)
                           }
                         >
                           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -126,6 +126,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
         }
         return employeUser;
       });
+      console.log(employeUsers);
       this.setState({ employeUsers });
     } catch (error) {
       console.error(error.response);

@@ -19,31 +19,13 @@
       "id": 2
     },
     {
-      "first_name": "pankaj",
-      "last_name": "seth",
-      "email": "pankaj@theprocdure.in",
-      "phone": "987654321",
-      "address": "marine lines",
-      "description": "employee",
+      "first_name": "khsgd",
+      "last_name": "ijh",
+      "email": "jshd@gmail.com",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
       "id": 3
-    },
-    {
-      "first_name": "ravi",
-      "last_name": "sonkar",
-      "email": "ravi@theperocedure.in",
-      "phone": "987654321",
-      "address": "worli",
-      "description": "employee",
-      "id": 4
-    },
-    {
-      "first_name": "ankit ",
-      "last_name": "mishra",
-      "email": "ankit@theprocedure.in",
-      "phone": "987654321",
-      "address": "kalyan",
-      "description": "employee",
-      "id": 7
     }
   ],
   "login": [
@@ -140,6 +122,12 @@
       "password": "hdft",
       "usertype": "uygtu",
       "id": 25
+    },
+    {
+      "username": "",
+      "password": "",
+      "usertype": "",
+      "id": 26
     }
   ]
 }
