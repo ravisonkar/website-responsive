@@ -6,31 +6,55 @@ import About from '../Container/About';
 import EmployeList from './EmployeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
+import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
+import IUser from '../classes/IUser';
+
 import New from './AddUserForm';
 import List from '../Container/List';
 import Login from './login';
 import LoginForm from '../Component/LoginForm';
 import Logins from './Logins';
+type EventHandler = (user: IUser) => void;
 
+interface SessionState {
+  user: IUser[];
+  saveUserHandler: EventHandler;
+}
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
     return (
       <div>
-        <Header currentPath={this.props.location.pathname}></Header>
-        {this.routes()}
+        <SessionProvider>
+          <SessionConsumer>
+            {({ user_name }) => (
+              <Header
+                currentPath={this.props.location.pathname}
+                user_name={user_name}
+              ></Header>
+            )}
+          </SessionConsumer>
+        </SessionProvider>
+        <SessionProvider>
+          <SessionConsumer>
+            {({ user_name, saveUserHandler }) =>
+              this.routes(user_name, saveUserHandler)
+            }
+          </SessionConsumer>
+        </SessionProvider>
         {/* <Footer></Footer> */}
       </div>
     );
   }
 
-  routes = () => {
+  routes = (user_name: string, saveUserHandler: EventHandler) => {
+    console.log(user_name);
     return (
       <Switch>
         <Route
           path="/"
           exact={true}
           render={() => {
-            return <Home></Home>;
+            return <Home user_name={user_name}></Home>;
           }}
         ></Route>
         <Route
@@ -40,6 +64,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
             return <About></About>;
           }}
         ></Route>
+        )}
         <Route
           path="/employees"
           exact={true}
@@ -68,7 +93,6 @@ class InternalContainer extends React.Component<RouteComponentProps> {
             return <New></New>;
           }}
         ></Route>
-
         <Route
           path="/newdata:id"
           exact={true}
@@ -76,7 +100,6 @@ class InternalContainer extends React.Component<RouteComponentProps> {
             return <New></New>;
           }}
         ></Route>
-
         <Route
           path="/list"
           exact={false}
@@ -94,8 +117,14 @@ class InternalContainer extends React.Component<RouteComponentProps> {
         <Route
           path="/login"
           exact={false}
-          render={() => {
-            return <Logins></Logins>;
+          render={(props) => {
+            return (
+              <Logins
+                {...props}
+                saveUserHandler={saveUserHandler}
+                user_name={user_name}
+              ></Logins>
+            );
           }}
         ></Route>
       </Switch>
