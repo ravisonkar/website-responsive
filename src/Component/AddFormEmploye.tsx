@@ -13,12 +13,12 @@ import IOption from '../classes/IEmploye';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;
-interface AddFormEmployeeProps {
+interface IAddFormEmployeeProps {
   onCancelClick: VoidHandler;
   onMychangeHandler: EventHandler;
   onMySubmitHandler: EventHandler;
   searchEventHandler: EventHandler;
-  data: ITeam;
+  employeeUser: ITeam;
 }
 
 const AddFormEmployee = ({
@@ -26,8 +26,8 @@ const AddFormEmployee = ({
   onMychangeHandler,
   onMySubmitHandler,
   searchEventHandler,
-  data,
-}: AddFormEmployeeProps) => {
+  employeeUser,
+}: IAddFormEmployeeProps) => {
   return (
     <Row>
       <Container>
@@ -42,7 +42,7 @@ const AddFormEmployee = ({
               placeholder="First Name"
               onChange={onMychangeHandler}
               name="first_name"
-              value={data.first_name}
+              value={employeeUser.first_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -52,7 +52,7 @@ const AddFormEmployee = ({
               placeholder="Last Name"
               onChange={onMychangeHandler}
               name="last_name"
-              value={data.last_name}
+              value={employeeUser.last_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -62,7 +62,7 @@ const AddFormEmployee = ({
               placeholder="Email Address"
               onChange={onMychangeHandler}
               name="email"
-              value={data.email}
+              value={employeeUser.email}
             />
           </Form.Group>
 
@@ -73,16 +73,16 @@ const AddFormEmployee = ({
               placeholder="Phone Number"
               onChange={onMychangeHandler}
               name="phone"
-              value={data.phone}
+              value={employeeUser.phone}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Description</Form.Label>
             <Form.Control
-              placeholder="text"
+              placeholder="Description"
               onChange={onMychangeHandler}
               name="description"
-              value={data.description}
+              value={employeeUser.description}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -92,7 +92,7 @@ const AddFormEmployee = ({
               placeholder="Address"
               onChange={onMychangeHandler}
               name="address"
-              value={data.address}
+              value={employeeUser.address}
             />
           </Form.Group>
           <Button

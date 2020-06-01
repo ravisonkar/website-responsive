@@ -7,20 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ITeam from '../classes/ITeam';
 import Container from 'react-bootstrap/Container';
 import {
-  addUserFormRequest,
-  editUserFormRequest,
-  updateUserFormRequest,
-} from '../http/userForm';
-interface EmployeeState {
+  addEmployeeUserFormRequest,
+  editEmployeeUserFormRequest,
+  updateERmployeeUserFormRequest,
+} from '../http/employeeUser';
+interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
-  data: ITeam;
+  employeeUser: ITeam;
 }
 
-class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
+class AddEmployee extends React.Component<RouteComponentProps, IEmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
-    data: {} as ITeam,
+    employeeUser: {} as ITeam,
   };
+
   componentDidMount() {
     const { id }: any = this.props.match?.params;
     if (id) {
@@ -38,7 +39,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
         <AddFormEmployee
           onCancelClick={this.onCancelClick}
           onMychangeHandler={this.onMychangeHandler}
-          data={this.state.data}
+          employeeUser={this.state.employeeUser}
           onMySubmitHandler={this.onMySubmitHandler}
           searchEventHandler={this.searchEventHandler}
         ></AddFormEmployee>
@@ -53,12 +54,12 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     };
     try {
       let { id }: any = this.props.match?.params;
-      console.log(id);
       if (id) {
+        await updateERmployeeUserFormRequest(data, id);
         this.setState({ shouldRedirectToEmployeeEventForm: true });
-        await updateUserFormRequest(data, id);
       } else {
-        await addUserFormRequest(data);
+        await addEmployeeUserFormRequest(data);
+        this.setState({ shouldRedirectToEmployeeEventForm: true });
       }
     } catch (error) {
       console.error(error);
@@ -68,7 +69,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
   onMychangeHandler = (event: any) => {
     event.persist();
     this.setState({
-      data: { ...this.state.data },
+      employeeUser: { ...this.state.employeeUser },
       [event.target.name]: event.target.value,
       shouldRedirectToEmployeeEventForm: false,
     });
@@ -82,9 +83,9 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
 
   editEmplpoyeUserData = async (id: any) => {
     try {
-      const employeUser = await editUserFormRequest(id);
+      const employeUser = await editEmployeeUserFormRequest(id);
       console.log(employeUser);
-      this.setState({ data: employeUser });
+      this.setState({ employeeUser: employeUser });
     } catch (error) {
       console.log(error);
     }

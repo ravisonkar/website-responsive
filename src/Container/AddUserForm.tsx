@@ -3,19 +3,24 @@ import iEmploye from '../classes/IEmploye';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import { addUserFormRequest, editUserFormRequest } from '../http/userForm';
+import {
+  addEmployeeUserFormRequest,
+  editEmployeeUserFormRequest,
+  updateERmployeeUserFormRequest,
+} from '../http/employeeUser';
 import { useParams, Redirect } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import IUserForm from '../classes/Inew';
 
-const New = () => {
-  const [values, setvalue] = useState({} as IUserForm);
+const AddUserForm = () => {
+  const [values, setValues] = useState({} as IUserForm);
+
+  const { id } = useParams();
 
   const handleChange = (event: any) => {
     event.persist();
-    setvalue((values) => ({
+    setValues((values) => ({
       ...values,
       [event.target.name]: event.target.value,
     }));
@@ -24,25 +29,27 @@ const New = () => {
   const handleSubmit = async (event: any) => {
     event.persist();
     try {
-      await addUserFormRequest(values);
+      if (id) {
+        await updateERmployeeUserFormRequest(values, id);
+      } else {
+        await addEmployeeUserFormRequest(values);
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const { id } = useParams();
-
-  const getData = async () => {
+  const getEmployeesUserData = async () => {
     try {
-      const userData = await editUserFormRequest(id);
-      setvalue(userData);
+      const employeesUserData = await editEmployeeUserFormRequest(id);
+      setValues(employeesUserData);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getData();
+    getEmployeesUserData();
   }, []);
 
   return (
@@ -125,4 +132,4 @@ const New = () => {
     </Row>
   );
 };
-export default New;
+export default AddUserForm;

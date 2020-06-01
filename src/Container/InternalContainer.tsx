@@ -6,7 +6,7 @@ import About from '../Container/About';
 import EmployeList from './EmployeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
-import New from './AddUserForm';
+import AddUserForm from './AddUserForm';
 import List from '../Container/List';
 import Login from './login';
 
@@ -59,18 +59,18 @@ class InternalContainer extends React.Component<RouteComponentProps> {
         }}
       ></Route>
       <Route
-        path="/newdata"
+        path="/userform"
         exact={true}
-        render={(props) => {
-          return <New></New>;
+        render={() => {
+          return <AddUserForm></AddUserForm>;
         }}
       ></Route>
 
       <Route
-        path="/newdata:id"
+        path="/user:id"
         exact={true}
         render={() => {
-          return <New></New>;
+          return <AddUserForm></AddUserForm>;
         }}
       ></Route>
 
@@ -81,13 +81,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           return <List></List>;
         }}
       ></Route>
-      <Route
+      {/* <Route
         path="/user"
         exact={false}
         render={(props) => {
           return <Login {...props}></Login>;
         }}
-      ></Route>
+      ></Route> */}
     </Switch>
   );
 }

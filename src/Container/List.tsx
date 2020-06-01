@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import { fetchUserDataRequest, DeleteUserDataRequest } from '../http/userForm';
+import {
+  fetchUserDataRequest,
+  DeleteEmployeeUserDataRequest,
+} from '../http/employeeUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPencilAlt,
@@ -24,26 +27,26 @@ export interface IValues {
 }
 
 const List = () => {
-  const [data, setData] = useState([] as IValues[]);
+  const [employeesData, setEmployeesData] = useState([] as IValues[]);
 
   useEffect(() => {
-    getUserData();
+    getEmployeesUserData();
   }, []);
 
-  const getUserData = async () => {
+  const getEmployeesUserData = async () => {
     try {
-      const userData = await fetchUserDataRequest();
-      setData(userData);
+      const employeesData = await fetchUserDataRequest();
+      setEmployeesData(employeesData);
     } catch (error) {
       console.error(error.response);
     }
   };
 
-  const deleteUserData = async (event: any, id: number) => {
+  const deleteEmployeeUserData = async (event: any, id: number) => {
     event.persist();
     try {
-      await DeleteUserDataRequest(id);
-      getUserData();
+      await DeleteEmployeeUserDataRequest(id);
+      getEmployeesUserData();
     } catch (error) {
       console.error(error);
     }
@@ -66,24 +69,28 @@ const List = () => {
               <th scope="col">Delete</th>
             </tr>
           </thead>
-          {data.map((data, index) => {
+          {employeesData.map((employeeData, index) => {
             return (
               <tbody key={index}>
                 <tr>
-                  <td>{data.id}</td>
-                  <td>{data.first_name}</td>
-                  <td>{data.last_name}</td>
-                  <td>{data.email}</td>
-                  <td>{data.phone}</td>
-                  <td>{data.address}</td>
-                  <td>{data.description}</td>
+                  <td>{employeeData.id}</td>
+                  <td>{employeeData.first_name}</td>
+                  <td>{employeeData.last_name}</td>
+                  <td>{employeeData.email}</td>
+                  <td>{employeeData.phone}</td>
+                  <td>{employeeData.address}</td>
+                  <td>{employeeData.description}</td>
                   <td>
-                    <Link to={`newdata${data.id}`}>
+                    <Link to={`user${employeeData.id}`}>
                       <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                     </Link>
                   </td>
                   <td>
-                    <span onClick={(e) => deleteUserData(e, data.id)}>
+                    <span
+                      onClick={(e) =>
+                        deleteEmployeeUserData(e, employeeData.id)
+                      }
+                    >
                       <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                     </span>
                   </td>

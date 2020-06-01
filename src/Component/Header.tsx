@@ -4,10 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavbarToggle from 'react-bootstrap/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse';
 import { Link } from 'react-router-dom';
-interface HeaderProps {
+interface IHeaderProps {
   currentPath: string;
 }
-class Header extends React.Component<HeaderProps> {
+class Header extends React.Component<IHeaderProps> {
   render() {
     return (
       <Navbar bg="transparent" expand="lg">
@@ -32,12 +32,12 @@ class Header extends React.Component<HeaderProps> {
                 this.props.currentPath.includes('/employees') ? 'active' : ''
               }`}
             >
-              Team
+              Employees
             </Link>
             <Link
-              to="newdata"
+              to="userform"
               className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/newdata') ? 'active' : ''
+                this.props.currentPath.includes('/userform') ? 'active' : ''
               }`}
             >
               Userform
@@ -50,14 +50,14 @@ class Header extends React.Component<HeaderProps> {
             >
               List
             </Link>
-            <Link
+            {/* <Link
               to="/user"
               className={`text-dark mr-3 link ${
                 this.props.currentPath.includes('/user') ? 'active' : ''
               }`}
             >
               user
-            </Link>
+            </Link> */}
           </Nav>
         </NavbarCollapse>
       </Navbar>

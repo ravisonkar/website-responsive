@@ -2,7 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
-import { fetchUserDataRequest, DeleteUserDataRequest } from '../http/userForm';
+import {
+  fetchUserDataRequest,
+  DeleteEmployeeUserDataRequest,
+} from '../http/employeeUser';
 import IEmploye from '../classes/IEmploye';
 import {
   faPencilAlt,
@@ -16,19 +19,19 @@ import Col from 'react-bootstrap/Col';
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-interface TeamState {
+interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   employeUsers: IEmploye[];
 }
 
-class EmployeList extends React.Component<RouteComponentProps, TeamState> {
+class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
     employeUsers: [] as IEmploye[],
   };
 
   componentDidMount() {
-    this.getUserData();
+    this.getEmployeeUserData();
   }
 
   render() {
@@ -75,21 +78,21 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
                 {this.state.employeUsers.map((employeUser, index) => {
                   return (
                     <tr>
-                      <th>{employeUser._id}</th>
+                      <th>{employeUser.id}</th>
                       <td>{employeUser.name}</td>
                       <td>{employeUser.email}</td>
                       <td>{employeUser.phone}</td>
                       <td>{employeUser.address}</td>
                       <td>{employeUser.description}</td>
                       <td>
-                        <Link to={`/employee${employeUser._id}`}>
+                        <Link to={`/employee${employeUser.id}`}>
                           <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                         </Link>
                       </td>
                       <td>
                         <span
                           onClick={(e) =>
-                            this.deleteUserData(e, employeUser._id)
+                            this.deleteEmoloyeeUserData(e, employeUser.id)
                           }
                         >
                           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -106,17 +109,17 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
     );
   }
 
-  deleteUserData = async (event: any, id: any) => {
+  deleteEmoloyeeUserData = async (event: any, id: any) => {
     event.persist();
     try {
-      await DeleteUserDataRequest(id);
-      this.getUserData();
+      await DeleteEmployeeUserDataRequest(id);
+      this.getEmployeeUserData();
     } catch (error) {
       console.error(error);
     }
   };
 
-  getUserData = async () => {
+  getEmployeeUserData = async () => {
     try {
       let employeUsers = await fetchUserDataRequest();
       employeUsers = employeUsers.map((employeUser: IEmploye) => {
@@ -126,7 +129,6 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
         }
         return employeUser;
       });
-      console.log(employeUsers);
       this.setState({ employeUsers });
     } catch (error) {
       console.error(error.response);
