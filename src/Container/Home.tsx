@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Redirect } from 'react-router';
 
 class Home extends React.Component {
   render() {
@@ -10,7 +11,9 @@ class Home extends React.Component {
       <Container className="title">
         <Row>
           <Col>
-            <h1 className="text-center">Welcome To Procedure Technologies</h1>
+            <h1 className="text-center">
+              Welcome To Procedure Technologies8;//
+            </h1>
           </Col>
         </Row>
         <Row>
