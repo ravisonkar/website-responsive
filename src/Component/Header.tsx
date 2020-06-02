@@ -11,7 +11,6 @@ interface HeaderProps {
 }
 class Header extends React.Component<HeaderProps> {
   render() {
-    console.log('jjg');
     return (
       <Navbar bg="transparent" expand="lg">
         <Link to="/" className="text-dark mr-3">
@@ -35,41 +34,12 @@ class Header extends React.Component<HeaderProps> {
                 this.props.currentPath.includes('/employees') ? 'active' : ''
               }`}
             >
-              Team
+              Employees
             </Link>
-            <Link
-              to="newdata"
-              className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/newdata') ? 'active' : ''
-              }`}
-            >
-              Userform
-            </Link>
-            <Link
-              to="list"
-              className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/list') ? 'active' : ''
-              }`}
-            >
-              List
-            </Link>
-            {this.props.user_name !== 'djhfgk@gfmail' ? (
-              <Link
-                to="/user"
-                className={`text-dark mr-3 link ${
-                  this.props.currentPath.includes('/user') ? 'active' : ''
-                }`}
-              >
-                user
-              </Link>
-            ) : (
-              ''
-            )}
-
             <Link
               to="/login"
               className={`text-dark mr-3 link ${
-                this.props.currentPath.includes('/user') ? 'active' : ''
+                this.props.currentPath.includes('/login') ? 'active' : ''
               }`}
             >
               Login

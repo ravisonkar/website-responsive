@@ -4,17 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { Redirect } from 'react-router';
-interface HomeProps {
-  user_name: string;
-}
-class Home extends React.Component<HomeProps> {
+
+class Home extends React.Component {
   render() {
     return (
       <Container className="title">
         <Row>
           <Col>
             <h1 className="text-center">
-              Welcome To Procedure Technologies{this.props.user_name}
+              Welcome To Procedure Technologies8;//
             </h1>
           </Col>
         </Row>

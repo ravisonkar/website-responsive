@@ -12,7 +12,7 @@ const state: SessionState = {
   user_name: '',
   password: '',
   saveUserHandler: (user: IUser) => {
-    console.log('k');
+    console.log(user);
   },
 };
 interface ISessionProps {
@@ -30,7 +30,6 @@ class Session extends React.Component<ISessionProps, SessionState> {
           user_name: user.user_name,
           password: user.password,
         });
-        console.log(this.state.user_name);
       },
     };
   }

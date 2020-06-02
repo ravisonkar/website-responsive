@@ -2,7 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
-import { fetchUserDataRequest, DeleteUserDataRequest } from '../http/userForm';
+import {
+  fetchEmployeesUserDataRequest,
+  DeleteEmployeeUserDataRequest,
+} from '../http/userForm';
 import IEmploye from '../classes/IEmploye';
 import {
   faPencilAlt,
@@ -28,7 +31,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
   };
 
   componentDidMount() {
-    this.getUserData();
+    this.getEmployeesUserData();
   }
 
   render() {
@@ -75,21 +78,21 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
                 {this.state.employeUsers.map((employeUser, index) => {
                   return (
                     <tr>
-                      <th>{employeUser._id}</th>
+                      <th>{employeUser.id}</th>
                       <td>{employeUser.name}</td>
                       <td>{employeUser.email}</td>
                       <td>{employeUser.phone}</td>
                       <td>{employeUser.address}</td>
                       <td>{employeUser.description}</td>
                       <td>
-                        <Link to={`/employee${employeUser._id}`}>
+                        <Link to={`/employee${employeUser.id}`}>
                           <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                         </Link>
                       </td>
                       <td>
                         <span
                           onClick={(e) =>
-                            this.deleteUserData(e, employeUser._id)
+                            this.deleteEmployeeUserData(e, employeUser.id)
                           }
                         >
                           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -106,19 +109,19 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
     );
   }
 
-  deleteUserData = async (event: any, id: any) => {
+  deleteEmployeeUserData = async (event: any, id: any) => {
     event.persist();
     try {
-      await DeleteUserDataRequest(id);
-      this.getUserData();
+      await DeleteEmployeeUserDataRequest(id);
+      this.getEmployeesUserData();
     } catch (error) {
       console.error(error);
     }
   };
 
-  getUserData = async () => {
+  getEmployeesUserData = async () => {
     try {
-      let employeUsers = await fetchUserDataRequest();
+      let employeUsers = await fetchEmployeesUserDataRequest();
       employeUsers = employeUsers.map((employeUser: IEmploye) => {
         if (employeUser) {
           employeUser.name =

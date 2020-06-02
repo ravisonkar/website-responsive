@@ -15,7 +15,6 @@ interface LoginProps {
   handleChange: EventHandler;
   showPassword: boolean;
   onShowPassword: ShowHandler;
-  user_name: string;
 }
 
 const LoginForm = ({
@@ -23,7 +22,6 @@ const LoginForm = ({
   handleChange,
   showPassword,
   onShowPassword,
-  user_name,
 }: LoginProps) => {
   return (
     <div>
@@ -34,7 +32,6 @@ const LoginForm = ({
               <img className="img mb-3" src="assets/image/logo.png" />
               <div className="card a p-lg-5 p-md-4 p-3 shadow-lg">
                 <h3 className="text-center mb-3">Login</h3>
-                <h6>{user_name}</h6>
                 <Col>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
@@ -69,7 +66,6 @@ const LoginForm = ({
                 <Col>
                   <Button
                     variant="primary"
-                    type="submit"
                     className="float-right mt-3"
                     onClick={loginSubmitHandler}
                   >

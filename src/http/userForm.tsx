@@ -1,28 +1,35 @@
 import axios from 'axios';
 
-export const addUserFormRequest = (data: any) => {
+export const addEmployeeUserFormRequest = (data: any) => {
   return axios
-    .post(`http://localhost:3000/notes`, data)
+    .post(`http://localhost:5000/customers`, data)
     .then((value) => value.data);
 };
 
-export const editUserFormRequest = (id: any) => {
+export const editEmployeeUserFormRequest = (id: any) => {
   return axios
-    .get(`http://localhost:3000/notes/${id}`)
+    .get(`http://localhost:5000/customers/${id}`)
     .then((value) => value.data);
 };
 
-export const fetchUserDataRequest = () => {
-  return axios.get(`http://localhost:3000/notes`).then((value) => value.data);
-};
-
-export const DeleteUserDataRequest = (id: number) => {
+export const fetchEmployeesUserDataRequest = () => {
   return axios
-    .delete(`http://localhost:3000/notes/${id}`)
+    .get(`http://localhost:5000/customers`)
     .then((value) => value.data);
 };
-export const updateUserFormRequest = (data: any, id: any) => {
+
+export const DeleteEmployeeUserDataRequest = (id: number) => {
   return axios
-    .put(`http://localhost:3000/notes/${id}`, data)
+    .delete(`http://localhost:5000/customers/${id}`)
+    .then((value) => value.data);
+};
+export const updateEmployeeUserFormRequest = (data: any, id: any) => {
+  return axios
+    .put(`http://localhost:5000/customers/${id}`, data)
+    .then((value) => value.data);
+};
+export const loginUserRequest = (data: any) => {
+  return axios
+    .post(`http://localhost:5000/login/`, data)
     .then((value) => value.data);
 };

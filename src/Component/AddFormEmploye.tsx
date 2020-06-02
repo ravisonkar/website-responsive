@@ -18,7 +18,7 @@ interface AddFormEmployeeProps {
   onMychangeHandler: EventHandler;
   onMySubmitHandler: EventHandler;
   searchEventHandler: EventHandler;
-  data: ITeam;
+  employeeUsers: ITeam;
 }
 
 const AddFormEmployee = ({
@@ -26,7 +26,7 @@ const AddFormEmployee = ({
   onMychangeHandler,
   onMySubmitHandler,
   searchEventHandler,
-  data,
+  employeeUsers,
 }: AddFormEmployeeProps) => {
   return (
     <Row>
@@ -42,7 +42,7 @@ const AddFormEmployee = ({
               placeholder="First Name"
               onChange={onMychangeHandler}
               name="first_name"
-              value={data.first_name}
+              value={employeeUsers.first_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -52,7 +52,7 @@ const AddFormEmployee = ({
               placeholder="Last Name"
               onChange={onMychangeHandler}
               name="last_name"
-              value={data.last_name}
+              value={employeeUsers.last_name}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -62,7 +62,7 @@ const AddFormEmployee = ({
               placeholder="Email Address"
               onChange={onMychangeHandler}
               name="email"
-              value={data.email}
+              value={employeeUsers.email}
             />
           </Form.Group>
 
@@ -73,7 +73,7 @@ const AddFormEmployee = ({
               placeholder="Phone Number"
               onChange={onMychangeHandler}
               name="phone"
-              value={data.phone}
+              value={employeeUsers.phone}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -82,7 +82,7 @@ const AddFormEmployee = ({
               placeholder="text"
               onChange={onMychangeHandler}
               name="description"
-              value={data.description}
+              value={employeeUsers.description}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -92,7 +92,7 @@ const AddFormEmployee = ({
               placeholder="Address"
               onChange={onMychangeHandler}
               name="address"
-              value={data.address}
+              value={employeeUsers.address}
             />
           </Form.Group>
           <Button
