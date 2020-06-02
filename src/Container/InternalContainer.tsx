@@ -8,7 +8,7 @@ import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
 import IUser from '../classes/IUser';
-import Login from './Login';
+import Login from './login';
 type EventHandler = (user: IUser) => void;
 
 interface SessionState {
