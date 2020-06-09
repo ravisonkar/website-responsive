@@ -20,7 +20,8 @@ class Add extends React.Component<RouteComponentProps, IAddstate> {
     );
   }
   submitHandler = async (user_data: IAdd, actions: FormikActions<any>) => {
-    await this.setState({ user_data });
+    this.setState({ user_data });
+    console.log(user_data);
     let data = {
       first_name: this.state.user_data.first_name,
       last_name: this.state.user_data.last_name,
