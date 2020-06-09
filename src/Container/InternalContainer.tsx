@@ -9,6 +9,7 @@ import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
 import IUser from '../classes/IUser';
 import Login from './login';
+import Add from './Add';
 type EventHandler = (user: IUser) => void;
 
 interface SessionState {
@@ -85,6 +86,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           exact={false}
           render={(props) => {
             return <Login {...props} saveUserHandler={saveUserHandler}></Login>;
+          }}
+        ></Route>
+        <Route
+          path="/add"
+          exact={false}
+          render={(props) => {
+            return <Add {...props}></Add>;
           }}
         ></Route>
       </Switch>

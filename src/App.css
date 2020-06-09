@@ -45,3 +45,7 @@ li {
 .img {
   height: 90px;
 }
+.main {
+  background-color: lightgray;
+  height: 100vh;
+}

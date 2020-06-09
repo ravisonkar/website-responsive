@@ -1,51 +1,37 @@
 {
   "customers": [
     {
-      "first_name": "sai",
-      "last_name": "gita",
-      "email": "saigita@theprocedure.in",
-      "phone": "9776545444",
-      "address": "mumbai",
-      "description": "employee",
-      "id": 1
-    },
-    {
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
       "first_name": "sachin",
       "last_name": "yadav",
       "email": "sachin@theporcedecure.in",
-      "phone": "987654321",
-      "address": "mumbai",
+      "phone": "3456789",
       "description": "employee",
+      "address": "mumbai",
       "id": 2
     },
     {
       "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {
-        "shouldRedirectToEmployeeEventForm": false,
-        "employeeUsers": {
-          "first_name": "khsgd",
-          "last_name": "ijh",
-          "email": "jshd@gmail.com",
-          "phone": "3456789",
-          "address": "uhguhgyg",
-          "description": "6fiuiko[oijoiu",
-          "id": 3
-        },
-        "first_name": "khsgds",
-        "last_name": "ijhs",
-        "email": "jshd@gmail.coma",
-        "phone": "3456789s",
-        "description": "6fiuiko[oijoius",
-        "address": "uhguhgygs",
-        "id": 3
-      },
-      "first_name": "khsgd",
-      "last_name": "ijh",
-      "email": "jshd@gmail.com",
+      "employeeUsers": {},
+      "first_name": "sachin",
+      "last_name": "yadav",
+      "email": "sachin@theporcedecure.in",
       "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
+      "description": "employee",
+      "address": "mumbai",
       "id": 3
+    },
+    {
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
+      "first_name": "sachin",
+      "last_name": "yadav",
+      "email": "sachin@theporcedecure.in",
+      "phone": "3456789",
+      "description": "employee",
+      "address": "mumbai",
+      "id": 4
     }
   ],
   "login": [
