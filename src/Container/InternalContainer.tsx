@@ -22,18 +22,18 @@ class InternalContainer extends React.Component<RouteComponentProps> {
       <div>
         <SessionProvider>
           <SessionConsumer>
-            {({ user_name }) => (
+            {({ user }) => (
               <Header
                 currentPath={this.props.location.pathname}
-                user_name={user_name}
+                user_name={user.first_name}
               ></Header>
             )}
           </SessionConsumer>
         </SessionProvider>
         <SessionProvider>
           <SessionConsumer>
-            {({ user_name, saveUserHandler }) =>
-              this.routes(user_name, saveUserHandler)
+            {({ user, saveUserHandler }) =>
+              this.routes(user.first_name, saveUserHandler)
             }
           </SessionConsumer>
         </SessionProvider>

@@ -1,21 +1,20 @@
 import React from 'react';
-import { FormikActions, Formik, Field, FormikValues } from 'formik';
-import { IAdd } from '../classes/IAdd';
+import { FormikActions, Formik,Form, Field, FormikValues } from 'formik';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import IUser from '../classes/IUser';
 
-export type userEventHandler = (
-  user_data: IAdd,
+export type UserEventHandler = (
+  user_data: IUser,
   actions: FormikActions<FormikValues>
 ) => void;
 
 interface IAddProps {
-  user_data: IAdd;
-  submitHandler: userEventHandler;
+  user_data: IUser;
+  submitHandler: UserEventHandler;
 }
 
 const AddFormik = ({ user_data, submitHandler }: IAddProps) => {
@@ -50,12 +49,12 @@ const AddFormik = ({ user_data, submitHandler }: IAddProps) => {
                         </div>
                         <Field
                           name="first_name"
-                          palceholder="First Name"
+                          plceholder="First Name"
                           type="text"
                           onChange={handleChange}
                           onBlur={handleBlur}
                           required={true}
-                          value={values.first_name}
+                          value={values.first_name ?values.first_name :"" }
                         />
                       </Col>
                       <Col sm={6}>

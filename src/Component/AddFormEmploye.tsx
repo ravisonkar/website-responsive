@@ -4,12 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { VoidHandler } from '../shared/types';
 import ITeam from '../classes/ITeam';
-import { RouteComponentProps } from 'react-router';
-import Select from 'react-select';
-import Dropdown from 'react-dropdown';
+
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import IOption from '../classes/IEmploye';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;

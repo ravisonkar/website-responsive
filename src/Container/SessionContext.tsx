@@ -3,14 +3,12 @@ import IUser from '../classes/IUser';
 type EventHandler = (user: IUser) => void;
 
 interface SessionState {
-  user_name: string;
-  password: string;
+  user:IUser
   saveUserHandler: EventHandler;
 }
 
 const state: SessionState = {
-  user_name: '',
-  password: '',
+  user:{} as IUser,
   saveUserHandler: (user: IUser) => {
     console.log(user);
   },
@@ -23,13 +21,9 @@ class Session extends React.Component<ISessionProps, SessionState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      user_name: '',
-      password: '',
+      user:{} as IUser,
       saveUserHandler: (user: IUser) => {
-        this.setState({
-          user_name: user.user_name,
-          password: user.password,
-        });
+        this.setState({user})
       },
     };
   }
