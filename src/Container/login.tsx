@@ -3,13 +3,13 @@ import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import LoginForm from '../Component/LoginForm';
-import Ilogin from '../classes/Ilogin';
 import IUser from '../classes/IUser';
 import { loginUserRequest } from '../http/userForm';
+import ILogin from '../Component/ILogin';
 type EventHandler = (event: any) => void;
 
 interface ILoginState {
-  login: Ilogin;
+  login: ILogin;
 }
 interface ILoginProps {
   saveUserHandler: EventHandler;

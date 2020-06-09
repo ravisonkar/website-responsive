@@ -6,7 +6,7 @@ import {
   fetchEmployeesUserDataRequest,
   DeleteEmployeeUserDataRequest,
 } from '../http/userForm';
-import IEmploye from '../classes/IEmploye';
+import IEmployee from '../classes/IEmployee';
 import {
   faPencilAlt,
   faPlus,
@@ -21,13 +21,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface TeamState {
   shouldRedirectToEmployeeEventForm: boolean;
-  employeUsers: IEmploye[];
+  employeUsers: IEmployee[];
 }
 
 class EmployeList extends React.Component<RouteComponentProps, TeamState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
-    employeUsers: [] as IEmploye[],
+    employeUsers: [] as IEmployee[],
   };
 
   componentDidMount() {
@@ -122,7 +122,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
   getEmployeesUserData = async () => {
     try {
       let employeUsers = await fetchEmployeesUserDataRequest();
-      employeUsers = employeUsers.map((employeUser: IEmploye) => {
+      employeUsers = employeUsers.map((employeUser: IEmployee) => {
         if (employeUser) {
           employeUser.name =
             employeUser.first_name + ' ' + employeUser.last_name;
