@@ -3,33 +3,27 @@ import Header from '../Component/Header';
 import { Switch, Route, RouteComponentProps } from 'react-router';
 import Home from '../Container/Home';
 import About from '../Container/About';
-import EmployeList from './EmployeList';
+import EmployeeList from './EmployeeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
-import IUser from '../classes/IUser';
-import Login from './login';
+import { IUser } from '../classes/IUser';
+import Login from './Login';
 import Add from './Add';
 type EventHandler = (user: IUser) => void;
 
-interface SessionState {
-  user: IUser[];
-  saveUserHandler: EventHandler;
-}
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
     return (
       <div>
-        <SessionProvider>
-          <SessionConsumer>
-            {({ user }) => (
-              <Header
-                currentPath={this.props.location.pathname}
-                user_name={user.first_name}
-              ></Header>
-            )}
-          </SessionConsumer>
-        </SessionProvider>
+        <SessionConsumer>
+          {({ user }) => (
+            <Header
+              currentPath={this.props.location.pathname}
+              user_name={user.first_name}
+            ></Header>
+          )}
+        </SessionConsumer>
         <SessionProvider>
           <SessionConsumer>
             {({ user, saveUserHandler }) =>
@@ -64,7 +58,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           path="/employees"
           exact={true}
           render={(props) => {
-            return <EmployeList {...props}></EmployeList>;
+            return <EmployeeList {...props}></EmployeeList>;
           }}
         ></Route>
         <Route

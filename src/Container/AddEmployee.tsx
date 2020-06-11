@@ -1,11 +1,9 @@
 import React from 'react';
-import AddFormEmployee from '../Component/AddFormEmploye';
+import AddFormEmployee from '../Component/AddFormEmployee';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
-import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ITeam from '../classes/ITeam';
-import Container from 'react-bootstrap/Container';
+import { ITeam } from '../classes/ITeam';
+import { toast } from 'react-toastify';
 import {
   addEmployeeUserFormRequest,
   editEmployeeUserFormRequest,
@@ -24,7 +22,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
   componentDidMount() {
     const { id }: any = this.props.match?.params;
     if (id) {
-      this.editEmplpoyeUserData(id);
+      this.editEmplpoyeeUserData(id);
     }
   }
 
@@ -54,10 +52,17 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     try {
       let { id }: any = this.props.match?.params;
       if (id) {
-        this.setState({ shouldRedirectToEmployeeEventForm: true });
         await updateEmployeeUserFormRequest(data, id);
+        toast.success('User update successfully', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        this.setState({ shouldRedirectToEmployeeEventForm: true });
       } else {
         await addEmployeeUserFormRequest(data);
+        toast.success('User added successfully', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        this.setState({ shouldRedirectToEmployeeEventForm: true });
       }
     } catch (error) {
       console.error(error);
@@ -79,7 +84,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     });
   };
 
-  editEmplpoyeUserData = async (id: any) => {
+  editEmplpoyeeUserData = async (id: any) => {
     try {
       const employeeUser = await editEmployeeUserFormRequest(id);
       this.setState({ employeeUsers: employeeUser });

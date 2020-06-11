@@ -1,8 +1,6 @@
 import React from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Nav, Navbar } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/NavbarToggle';
-import IUser from '../classes/IUser';
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse';
 import { Link } from 'react-router-dom';
 interface HeaderProps {

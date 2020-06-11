@@ -49,3 +49,10 @@ li {
   background-color: lightgray;
   height: 100vh;
 }
+label {
+  margin-top: 15px;
+}
+.inp {
+  width: 300px;
+  padding: 6px;
+}

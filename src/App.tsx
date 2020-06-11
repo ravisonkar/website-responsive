@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes/index';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import {
   faPencilAlt,
   faToggleOn,
@@ -34,6 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes></Routes>
       </BrowserRouter>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

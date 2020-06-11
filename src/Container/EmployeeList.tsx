@@ -1,21 +1,15 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { Row, Col, Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import {
   fetchEmployeesUserDataRequest,
   DeleteEmployeeUserDataRequest,
 } from '../http/userForm';
 import IEmployee from '../classes/IEmployee';
-import {
-  faPencilAlt,
-  faPlus,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -24,7 +18,7 @@ interface TeamState {
   employeUsers: IEmployee[];
 }
 
-class EmployeList extends React.Component<RouteComponentProps, TeamState> {
+class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
     employeUsers: [] as IEmployee[],
@@ -127,6 +121,7 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
           employeUser.name =
             employeUser.first_name + ' ' + employeUser.last_name;
         }
+
         return employeUser;
       });
       console.log(employeUsers);
@@ -136,4 +131,4 @@ class EmployeList extends React.Component<RouteComponentProps, TeamState> {
     }
   };
 }
-export default EmployeList;
+export default EmployeeList;

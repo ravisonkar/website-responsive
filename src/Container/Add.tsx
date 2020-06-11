@@ -1,30 +1,44 @@
 import React from 'react';
 import AddFormik from '../Component/AddFormik';
 import { RouteComponentProps } from 'react-router';
-import { addEmployeeUserFormRequest } from '../http/userForm';
-import { FormikActions, Formik, Field, FormikValues } from 'formik';
-import IUser from '../classes/IUser';
-interface IAddstate {
+import { addEmployeeUserFormReques } from '../http/userForm';
+import { IUserPayload } from '../classes/IUser';
+import { FormikActions } from 'formik';
+import { IUser } from '../classes/IUser';
+interface IAddState {
   userData: IUser;
 }
-class Add extends React.Component<RouteComponentProps, IAddstate> {
+class Add extends React.Component<RouteComponentProps, IAddState> {
   state = { userData: {} as IUser };
   render() {
     return (
       <div>
         <AddFormik
-          user_data={this.state.userData}
+          userData={this.state.userData}
           submitHandler={this.submitHandler}
         />
       </div>
     );
   }
-  submitHandler = async (userData: IUser, actions: FormikActions<any>) => {
-    console.log(userData);
-    this.setState({ userData });
 
+  setEmployeeUserDat = async (employeeUser: IUser) => {
+    const employeeUserData: IUserPayload = {
+      first_name: employeeUser.first_name,
+      last_name: employeeUser.last_name,
+      phone: employeeUser.phone,
+      address: employeeUser.address,
+      description: employeeUser.description,
+      email: employeeUser.email.id,
+    };
+    addEmployeeUserFormReques(employeeUserData);
+    console.log(employeeUserData);
+  };
+
+  submitHandler = async (userData: IUser, actions: FormikActions<any>) => {
+    this.setState({ userData });
     try {
-      await addEmployeeUserFormRequest(userData);
+      const user = await this.setEmployeeUserDat(userData);
+      console.log(user);
     } catch (error) {
       console.log(error);
     }
