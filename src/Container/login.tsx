@@ -1,23 +1,19 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import axios from 'axios';
-import Row from 'react-bootstrap/Row';
 import LoginForm from '../Component/LoginForm';
-import Ilogin from '../classes/Ilogin';
-import IUser from '../classes/IUser';
 import { loginUserRequest } from '../http/userForm';
+import ILogin from '../classes/ILogin';
 type EventHandler = (event: any) => void;
 
 interface ILoginState {
-  login: Ilogin;
+  loginData: ILogin;
+  showPassword: boolean;
 }
 interface ILoginProps {
   saveUserHandler: EventHandler;
 }
-class Login extends React.Component<ILoginProps> {
+class Login extends React.Component<ILoginProps, ILoginState> {
   state = {
-    user_name: '',
-    password: '',
+    loginData: {} as ILogin,
     showPassword: false,
   };
   render() {
@@ -32,23 +28,24 @@ class Login extends React.Component<ILoginProps> {
       </div>
     );
   }
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     this.setState({
-      user_name: this.state.user_name,
-      password: this.state.password,
+      loginData: { ...this.state.loginData },
       [event.target.name]: event.target.value,
+      showPassword: false,
     });
   };
 
-  loginSubmitHandler = (event: any) => {
+  loginSubmitHandler = async (event: any) => {
     event.persist();
     let employeeUserData = {
       ...this.state,
     };
     try {
-      this.props.saveUserHandler(employeeUserData);
-      const employeeUser = loginUserRequest(employeeUserData);
+      const employeeUser = await loginUserRequest(employeeUserData);
+      this.props.saveUserHandler(employeeUser);
     } catch (error) {
       console.log(error);
     }

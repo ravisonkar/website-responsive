@@ -3,36 +3,31 @@ import Header from '../Component/Header';
 import { Switch, Route, RouteComponentProps } from 'react-router';
 import Home from '../Container/Home';
 import About from '../Container/About';
-import EmployeList from './EmployeList';
+import EmployeeList from './EmployeeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
-import IUser from '../classes/IUser';
-import Login from './login';
+import { IUser } from '../classes/IUser';
+import Login from './Login';
+import Add from './Add';
 type EventHandler = (user: IUser) => void;
 
-interface SessionState {
-  user: IUser[];
-  saveUserHandler: EventHandler;
-}
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
     return (
       <div>
+        <SessionConsumer>
+          {({ user }) => (
+            <Header
+              currentPath={this.props.location.pathname}
+              user_name={user.first_name}
+            ></Header>
+          )}
+        </SessionConsumer>
         <SessionProvider>
           <SessionConsumer>
-            {({ user_name }) => (
-              <Header
-                currentPath={this.props.location.pathname}
-                user_name={user_name}
-              ></Header>
-            )}
-          </SessionConsumer>
-        </SessionProvider>
-        <SessionProvider>
-          <SessionConsumer>
-            {({ user_name, saveUserHandler }) =>
-              this.routes(user_name, saveUserHandler)
+            {({ user, saveUserHandler }) =>
+              this.routes(user.first_name, saveUserHandler)
             }
           </SessionConsumer>
         </SessionProvider>
@@ -63,7 +58,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           path="/employees"
           exact={true}
           render={(props) => {
-            return <EmployeList {...props}></EmployeList>;
+            return <EmployeeList {...props}></EmployeeList>;
           }}
         ></Route>
         <Route
@@ -85,6 +80,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           exact={false}
           render={(props) => {
             return <Login {...props} saveUserHandler={saveUserHandler}></Login>;
+          }}
+        ></Route>
+        <Route
+          path="/add"
+          exact={false}
+          render={(props) => {
+            return <Add {...props}></Add>;
           }}
         ></Route>
       </Switch>

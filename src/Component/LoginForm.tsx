@@ -1,12 +1,14 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
+import {
+  InputGroup,
+  FormControl,
+  Row,
+  Col,
+  Container,
+  Button,
+  Form,
+} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FormControl from 'react-bootstrap/FormControl';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 
 type EventHandler = (event: any) => void;
 type ShowHandler = () => void;

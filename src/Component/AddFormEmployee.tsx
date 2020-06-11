@@ -1,15 +1,7 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+import { Row, Container, Form, Button } from 'react-bootstrap';
 import { VoidHandler } from '../shared/types';
-import ITeam from '../classes/ITeam';
-import { RouteComponentProps } from 'react-router';
-import Select from 'react-select';
-import Dropdown from 'react-dropdown';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import IOption from '../classes/IEmploye';
+import { ITeam } from '../classes/ITeam';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;
@@ -62,7 +54,7 @@ const AddFormEmployee = ({
               placeholder="Email Address"
               onChange={onMychangeHandler}
               name="email"
-              value={employeeUsers.email}
+              value={employeeUsers.email?.name}
             />
           </Form.Group>
 
