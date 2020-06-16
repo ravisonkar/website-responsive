@@ -40,7 +40,6 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
       <Formik
         initialValues={userData}
         onSubmit={submitHandler}
-        enableReinitialize
         validationSchema={validationSchema}
       >
         {({
@@ -94,6 +93,7 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required={true}
+                            value={values.last_name ? values.last_name : ''}
                             component={customFormGroup}
                             isError={
                               getIn(errors, 'last_name') &&
@@ -144,6 +144,7 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required={true}
+                            value={values.phone ? values.phone : ''}
                             component={customFormGroup}
                             isError={
                               getIn(errors, 'phone') && getIn(touched, 'phone')
@@ -163,6 +164,7 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required={true}
+                            value={values.address ? values.address : ''}
                             component={customFormGroup}
                             isError={
                               getIn(errors, 'address') &&
@@ -183,6 +185,7 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required={true}
+                            value={values.description ? values.description : ''}
                             component={customFormGroup}
                             isError={
                               getIn(errors, 'description') &&

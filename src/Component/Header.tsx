@@ -1,19 +1,20 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/NavbarToggle';
+import { IsaveUser } from '../classes/IsaveUser';
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse';
 import { Link } from 'react-router-dom';
 interface HeaderProps {
   currentPath: string;
-  user_name: string;
+  user: IsaveUser;
 }
 class Header extends React.Component<HeaderProps> {
   render() {
+    console.log(this.props.user);
     return (
       <Navbar bg="transparent" expand="lg">
         <Link to="/" className="text-dark mr-3">
           <img className="image" src="assets/image/logo.png" />
-          <h6>{this.props.user_name}</h6>
         </Link>
         <NavbarToggle aria-controls="basic-navbar-nav" />
         <NavbarCollapse id="basic-navbar-nav">
@@ -50,6 +51,9 @@ class Header extends React.Component<HeaderProps> {
             >
               Add
             </Link>
+            <div>
+              <img src={this.props.user.url} className=" w-25" />
+            </div>
           </Nav>
         </NavbarCollapse>
       </Navbar>

@@ -7,10 +7,10 @@ import EmployeeList from './EmployeeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
-import { IUser } from '../classes/IUser';
+import { IsaveUser } from '../classes/IsaveUser';
 import Login from './Login';
 import Add from './Add';
-type EventHandler = (user: IUser) => void;
+type EventHandler = (user: IsaveUser) => void;
 
 class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
@@ -20,15 +20,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           {({ user }) => (
             <Header
               currentPath={this.props.location.pathname}
-              user_name={user.first_name}
+              user={user}
             ></Header>
           )}
         </SessionConsumer>
         <SessionProvider>
           <SessionConsumer>
-            {({ user, saveUserHandler }) =>
-              this.routes(user.first_name, saveUserHandler)
-            }
+            {({ user, saveUserHandler }) => this.routes(user, saveUserHandler)}
           </SessionConsumer>
         </SessionProvider>
         {/* <Footer></Footer> */}
@@ -36,7 +34,8 @@ class InternalContainer extends React.Component<RouteComponentProps> {
     );
   }
 
-  routes = (user_name: string, saveUserHandler: EventHandler) => {
+  routes = (user: IsaveUser, saveUserHandler: EventHandler) => {
+    console.log(user);
     return (
       <Switch>
         <Route
@@ -53,7 +52,6 @@ class InternalContainer extends React.Component<RouteComponentProps> {
             return <About></About>;
           }}
         ></Route>
-        )}
         <Route
           path="/employees"
           exact={true}
@@ -79,7 +77,13 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           path="/login"
           exact={false}
           render={(props) => {
-            return <Login {...props} saveUserHandler={saveUserHandler}></Login>;
+            return (
+              <Login
+                {...props}
+                saveUserHandler={saveUserHandler}
+                picture={user}
+              ></Login>
+            );
           }}
         ></Route>
         <Route

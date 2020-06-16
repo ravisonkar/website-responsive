@@ -1,33 +1,37 @@
 import React from 'react';
-import { IUser } from '../classes/IUser';
-type EventHandler = (user: IUser) => void;
+import { IsaveUser } from '../classes/IsaveUser';
+type EventHandler = (user: IsaveUser) => void;
 
 interface SessionState {
-  user: IUser;
+  user: IsaveUser;
   saveUserHandler: EventHandler;
 }
 
 const state: SessionState = {
-  user: {} as IUser,
-  saveUserHandler: (user: IUser) => {
+  user: {} as IsaveUser,
+  saveUserHandler: (user: IsaveUser) => {
     console.log(user);
   },
 };
 interface ISessionProps {
   children?: React.ReactNode;
 }
+
 const SessionContext = React.createContext<SessionState>(state);
 class Session extends React.Component<ISessionProps, SessionState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      user: {} as IUser,
-      saveUserHandler: (user: IUser) => {
-        this.setState({ user });
-        console.log(user);
+      user: {} as IsaveUser,
+      saveUserHandler: (user: IsaveUser) => {
+        const { picture }: any = user;
+        const { data }: any = picture;
+        this.setState({ user: data });
+        console.log(this.state.user);
       },
     };
   }
+
   render() {
     return (
       <div>
