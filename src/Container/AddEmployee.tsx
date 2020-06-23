@@ -12,13 +12,16 @@ import {
 interface EmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   employeeUsers: ITeam;
+  isButtonDisabled: boolean;
 }
 
 class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
     employeeUsers: {} as ITeam,
+    isButtonDisabled: true,
   };
+
   componentDidMount() {
     const { id }: any = this.props.match?.params;
     if (id) {
@@ -39,6 +42,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
           employeeUsers={this.state.employeeUsers}
           onMySubmitHandler={this.onMySubmitHandler}
           searchEventHandler={this.searchEventHandler}
+          isButtonDisabled={this.state.isButtonDisabled}
         ></AddFormEmployee>
       </div>
     );
@@ -50,7 +54,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
       ...this.state,
     };
     try {
-      let { id }: any = this.props.match?.params;
+      let id: any = this.state.employeeUsers.id;
       if (id) {
         await updateEmployeeUserFormRequest(data, id);
         toast.success('User update successfully', {
@@ -69,13 +73,34 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     }
   };
 
+  buttonDisabledEnable = () => {
+    console.log(this.state.employeeUsers);
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      address,
+      description,
+    } = this.state.employeeUsers;
+    if (first_name && last_name && email && phone && address && description) {
+      this.setState({ isButtonDisabled: false });
+    } else {
+      this.setState({ isButtonDisabled: true });
+    }
+  };
+
   onMychangeHandler = (event: any) => {
-    event.persist();
     this.setState({
-      employeeUsers: { ...this.state.employeeUsers },
+      employeeUsers: {
+        ...this.state.employeeUsers,
+        [event.target.name]: event.target.value,
+      },
       [event.target.name]: event.target.value,
       shouldRedirectToEmployeeEventForm: false,
+      isButtonDisabled: true,
     });
+    this.buttonDisabledEnable();
   };
 
   onCancelClick = () => {
@@ -88,6 +113,8 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     try {
       const employeeUser = await editEmployeeUserFormRequest(id);
       this.setState({ employeeUsers: employeeUser });
+      this.buttonDisabledEnable();
+      this.onMychangeHandler('');
     } catch (error) {
       console.log(error);
     }

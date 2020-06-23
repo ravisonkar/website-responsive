@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { toast } from 'react-toastify';
 
 interface TeamState {
   shouldRedirectToEmployeeEventForm: boolean;
@@ -85,6 +86,7 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
                       </td>
                       <td>
                         <span
+                          className="delete"
                           onClick={(e) =>
                             this.deleteEmployeeUserData(e, employeUser.id)
                           }
@@ -107,6 +109,9 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
     event.persist();
     try {
       await DeleteEmployeeUserDataRequest(id);
+      toast.success('User Delete successfully', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
       this.getEmployeesUserData();
     } catch (error) {
       console.error(error);

@@ -21,61 +21,6 @@
       "description": "employee",
       "address": "mumbai",
       "id": 3
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "sachin",
-      "last_name": "yadav",
-      "email": "sachin@theporcedecure.in",
-      "phone": "3456789",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 4
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "sai",
-      "last_name": "gita",
-      "email": "saigita@theporcedecure.in",
-      "phone": "3456789",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 5
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "rohit",
-      "last_name": "kudalkar",
-      "email": "rohit@theporcedecure.in",
-      "phone": "3456789",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 6
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "ulhas",
-      "last_name": "maccc",
-      "email": "ulhas@theporcedecure.in",
-      "phone": "3456789",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 7
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "shravani",
-      "last_name": "s",
-      "email": "shravani@theporcedecure.in",
-      "phone": "3456789",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 8
     }
   ],
   "add": [
@@ -1183,6 +1128,20 @@
       "user_name": "djhfgk@gfmail.com",
       "password": "98765431",
       "id": 171
+    },
+    {
+      "loginData": {},
+      "showPassword": false,
+      "user_name": "sonkar@gmail.com",
+      "password": "8765432",
+      "id": 172
+    },
+    {
+      "loginData": {},
+      "showPassword": false,
+      "user_name": "djhfgk@gfmail.com",
+      "password": "9876542",
+      "id": 173
     }
   ]
 }

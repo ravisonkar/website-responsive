@@ -11,9 +11,7 @@ class Home extends React.Component {
       <Container className="title">
         <Row>
           <Col>
-            <h1 className="text-center">
-              Welcome To Procedure Technologies8;//
-            </h1>
+            <h1 className="text-center">Welcome To Procedure</h1>
           </Col>
         </Row>
         <Row>
