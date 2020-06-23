@@ -28,7 +28,7 @@ interface IAddProps {
 const validationSchema = Yup.object().shape({
   first_name: Yup.string().trim().required('First Name is required'),
   last_name: Yup.string().trim().required('Last Name is required'),
-  email: Yup.string().trim().required('Email is required'),
+  gender: Yup.string().trim().required('Email is required'),
   phone: Yup.string().trim().required('Phone Number is required'),
   address: Yup.string().trim().required('Address is required'),
   description: Yup.string().trim().required('Description Name is required'),
@@ -127,11 +127,12 @@ const AddFormik = ({ userData, submitHandler }: IAddProps) => {
                             onBlur={handleBlur}
                             required={true}
                             isError={
-                              getIn(errors, 'email') && getIn(touched, 'email')
+                              getIn(errors, 'gender') &&
+                              getIn(touched, 'gender')
                             }
                             errorText={
-                              getIn(errors, 'email')
-                                ? getIn(errors, 'email')
+                              getIn(errors, 'gender')
+                                ? getIn(errors, 'gender')
                                 : ''
                             }
                           />

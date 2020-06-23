@@ -34,6 +34,8 @@ export const loginUserRequest = (data: any) => {
     .then((value) => value.data);
 };
 
-export const addEmployeeUserFormReques = (data: any) => {
-  return axios.post(`http://localhost:5000/add`, data);
+export const addFormRequest = (data: any) => {
+  return axios
+    .post(`http://localhost:5000/add`, data)
+    .then((value) => value.data);
 };
