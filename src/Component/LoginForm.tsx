@@ -9,7 +9,6 @@ import {
   Form,
 } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
-import { IsaveUser } from '../classes/IsaveUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FacebookLogin from 'react-facebook-login';
 
@@ -22,7 +21,6 @@ interface LoginProps {
   onShowPassword: ShowHandler;
   Responsefacebbokhandler: EventHandler;
   responseGoogleHandler: EventHandler;
-  picture: IsaveUser;
 }
 
 const LoginForm = ({
@@ -32,7 +30,6 @@ const LoginForm = ({
   onShowPassword,
   Responsefacebbokhandler,
   responseGoogleHandler,
-  picture,
 }: LoginProps) => {
   return (
     <div>
@@ -42,10 +39,6 @@ const LoginForm = ({
             <div className="mx-auto text-center g">
               <img className="img mb-3" src="assets/image/logo.png" />
               <div className="card a p-lg-5 p-md-4 p-3 shadow-lg">
-                <h3 className="text-center mb-3">
-                  Login <img src={picture.url} className="pic" />
-                </h3>
-
                 <Col>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
@@ -86,7 +79,7 @@ const LoginForm = ({
                     Login
                   </Button>
                 </Col>
-                <div>
+                {/* <div>
                   <FacebookLogin
                     appId="1181770952178346"
                     fields="name,email,picture"
@@ -98,7 +91,7 @@ const LoginForm = ({
                     onSuccess={responseGoogleHandler}
                     onFailure={responseGoogleHandler}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </Row>
