@@ -6,13 +6,13 @@ export interface IUser {
   phone: string;
   address: string;
   description: string;
-  email: IGender;
+  gender: IGender;
 }
 export interface IUserPayload {
   id?: string;
   first_name?: string;
   last_name?: string;
-  email?: string;
+  gender?: string;
   phone?: string;
   address?: string;
   description?: string;

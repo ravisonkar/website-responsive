@@ -1,5 +1,5 @@
 import React from 'react';
-import { IsaveUser } from '../classes/IsaveUser';
+import IsaveUser from '../classes/IsaveUser';
 type EventHandler = (user: IsaveUser) => void;
 
 interface SessionState {
@@ -24,10 +24,8 @@ class Session extends React.Component<ISessionProps, SessionState> {
     this.state = {
       user: {} as IsaveUser,
       saveUserHandler: (user: IsaveUser) => {
-        const { picture }: any = user;
-        const { data }: any = picture;
-        this.setState({ user: data });
-        console.log(this.state.user);
+        this.setState({ user });
+        console.log(user);
       },
     };
   }

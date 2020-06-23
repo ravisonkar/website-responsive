@@ -1,7 +1,7 @@
 import React from 'react';
 import AddFormik from '../Component/AddFormik';
 import { RouteComponentProps } from 'react-router';
-import { addEmployeeUserFormReques } from '../http/userForm';
+import { addFormRequest } from '../http/userForm';
 import { IUserPayload } from '../classes/IUser';
 import { FormikActions } from 'formik';
 import { IUser } from '../classes/IUser';
@@ -21,23 +21,23 @@ class Add extends React.Component<RouteComponentProps, IAddState> {
     );
   }
 
-  setEmployeeUserDat = async (employeeUser: IUser) => {
+  setUserData = async (employeeUser: IUser) => {
     const employeeUserData: IUserPayload = {
       first_name: employeeUser.first_name,
       last_name: employeeUser.last_name,
       phone: employeeUser.phone,
       address: employeeUser.address,
       description: employeeUser.description,
-      email: employeeUser.email.id,
+      gender: employeeUser.gender.id,
     };
-    addEmployeeUserFormReques(employeeUserData);
-    console.log(employeeUserData);
+    return employeeUserData;
   };
 
   submitHandler = async (userData: IUser, actions: FormikActions<any>) => {
     this.setState({ userData });
     try {
-      const user = await this.setEmployeeUserDat(userData);
+      const user = await this.setUserData(userData);
+      addFormRequest(user);
       console.log(user);
     } catch (error) {
       console.log(error);

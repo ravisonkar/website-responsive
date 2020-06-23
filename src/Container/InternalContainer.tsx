@@ -7,7 +7,7 @@ import EmployeeList from './EmployeeList';
 import Footer from '../Component/Footer';
 import AddEmployee from '../Container/AddEmployee';
 import { SessionConsumer, SessionProvider } from '../Container/SessionContext';
-import { IsaveUser } from '../classes/IsaveUser';
+import IsaveUser from '../classes/IsaveUser';
 import Login from './Login';
 import Add from './Add';
 type EventHandler = (user: IsaveUser) => void;
@@ -16,14 +16,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
   render() {
     return (
       <div>
-        <SessionConsumer>
-          {({ user }) => (
-            <Header
-              currentPath={this.props.location.pathname}
-              user={user}
-            ></Header>
-          )}
-        </SessionConsumer>
+        <Header currentPath={this.props.location.pathname}></Header>
         <SessionProvider>
           <SessionConsumer>
             {({ user, saveUserHandler }) => this.routes(user, saveUserHandler)}
@@ -35,7 +28,6 @@ class InternalContainer extends React.Component<RouteComponentProps> {
   }
 
   routes = (user: IsaveUser, saveUserHandler: EventHandler) => {
-    console.log(user);
     return (
       <Switch>
         <Route
@@ -77,13 +69,7 @@ class InternalContainer extends React.Component<RouteComponentProps> {
           path="/login"
           exact={false}
           render={(props) => {
-            return (
-              <Login
-                {...props}
-                saveUserHandler={saveUserHandler}
-                picture={user}
-              ></Login>
-            );
+            return <Login {...props} saveUserHandler={saveUserHandler}></Login>;
           }}
         ></Route>
         <Route

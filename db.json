@@ -34,181 +34,48 @@
       "id": 4
     },
     {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sonkaravi44@gmail.com",
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
+      "first_name": "sai",
+      "last_name": "gita",
+      "email": "saigita@theporcedecure.in",
       "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
+      "description": "employee",
+      "address": "mumbai",
       "id": 5
     },
     {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sonkaravi44@gmail.com",
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
+      "first_name": "rohit",
+      "last_name": "kudalkar",
+      "email": "rohit@theporcedecure.in",
       "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
+      "description": "employee",
+      "address": "mumbai",
       "id": 6
     },
     {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sonkaravi44@gmail.com",
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
+      "first_name": "ulhas",
+      "last_name": "maccc",
+      "email": "ulhas@theporcedecure.in",
       "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
+      "description": "employee",
+      "address": "mumbai",
       "id": 7
     },
     {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sonkarravi44@gmail.com",
+      "shouldRedirectToEmployeeEventForm": false,
+      "employeeUsers": {},
+      "first_name": "shravani",
+      "last_name": "s",
+      "email": "shravani@theporcedecure.in",
       "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
+      "description": "employee",
+      "address": "mumbai",
       "id": 8
-    },
-    {
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "uygif@gmail.com",
-      "phone": "3456789",
-      "address": "uhguhgyg",
-      "description": "6fiuiko[oijoiu",
-      "id": 9
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "qytw@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 10
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "ahgd",
-      "email": "hag@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 11
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "ahgd",
-      "email": "hag@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 12
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "ahgd",
-      "email": "hag@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 13
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "ahgd",
-      "email": "hag@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 14
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sjdh@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 15
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "sjdh@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 16
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "yatw@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 17
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "yatw@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 18
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "yatw@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 19
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "tgyaeg@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 24
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUsers": {},
-      "first_name": "jeetnew1",
-      "last_name": "testBU1",
-      "email": "tgyaeg@gmail.com",
-      "phone": "3456789",
-      "description": "6fiuiko[oijoiu",
-      "address": "uhguhgyg",
-      "id": 25
     }
   ],
   "add": [
@@ -229,6 +96,41 @@
       "description": "6fiuiko[oijoiu",
       "email": "Male",
       "id": 2
+    },
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "id": 3
+    },
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "gender": "Male",
+      "id": 4
+    },
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "phone": "3456789",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "gender": "Male",
+      "id": 6
     }
   ],
   "login": [
@@ -1274,6 +1176,13 @@
       "user_name": "djhfgk@gfmail.com",
       "password": "987654321",
       "id": 170
+    },
+    {
+      "loginData": {},
+      "showPassword": false,
+      "user_name": "djhfgk@gfmail.com",
+      "password": "98765431",
+      "id": 171
     }
   ]
 }

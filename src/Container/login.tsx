@@ -2,7 +2,6 @@ import React from 'react';
 import LoginForm from '../Component/LoginForm';
 import { loginUserRequest } from '../http/userForm';
 import ILogin from '../classes/ILogin';
-import { IsaveUser } from '../classes/IsaveUser';
 
 type EventHandler = (event: any) => void;
 
@@ -13,7 +12,6 @@ interface ILoginState {
 
 interface ILoginProps {
   saveUserHandler: EventHandler;
-  picture: IsaveUser;
 }
 
 class Login extends React.Component<ILoginProps, ILoginState> {
@@ -21,6 +19,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     loginData: {} as ILogin,
     showPassword: false,
   };
+
   render() {
     return (
       <div>
@@ -31,14 +30,12 @@ class Login extends React.Component<ILoginProps, ILoginState> {
           onShowPassword={this.onShowPassword}
           Responsefacebbokhandler={this.Responsefacebbokhandler}
           responseGoogleHandler={this.responseGoogleHandler}
-          picture={this.props.picture}
         ></LoginForm>
       </div>
     );
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.persist();
     this.setState({
       loginData: { ...this.state.loginData },
       [event.target.name]: event.target.value,
@@ -47,7 +44,6 @@ class Login extends React.Component<ILoginProps, ILoginState> {
   };
 
   loginSubmitHandler = async (event: any) => {
-    event.persist();
     let employeeUserData = {
       ...this.state,
     };
