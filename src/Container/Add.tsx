@@ -37,7 +37,7 @@ class Add extends React.Component<RouteComponentProps, IAddState> {
     this.setState({ userData });
     try {
       const user = await this.setUserData(userData);
-      addFormRequest(user);
+      await addFormRequest(user);
       console.log(user);
     } catch (error) {
       console.log(error);

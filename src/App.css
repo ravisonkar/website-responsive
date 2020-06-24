@@ -62,3 +62,6 @@ label {
 .delete {
   cursor: pointer;
 }
+button:disabled {
+  cursor: no-drop;
+}

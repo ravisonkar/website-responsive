@@ -3,7 +3,7 @@ export default interface IEmployee {
   first_name: string;
   last_name: string;
   email: string;
-  phone: string;
+  phone: number;
   address: string;
   description: string;
   name: string;

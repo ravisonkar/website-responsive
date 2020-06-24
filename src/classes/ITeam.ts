@@ -4,7 +4,7 @@ export interface ITeam {
   first_name: string;
   last_name: string;
   email: string;
-  phone: string;
+  phone: number;
   address: string;
   description?: string;
 }

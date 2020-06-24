@@ -36,16 +36,19 @@ class Login extends React.Component<ILoginProps, ILoginState> {
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     this.setState({
-      loginData: { ...this.state.loginData },
-      [event.target.name]: event.target.value,
-      showPassword: false,
+      loginData: {
+        ...this.state.loginData,
+        [event.target.name]: event.target.value,
+      },
     });
   };
 
   loginSubmitHandler = async (event: any) => {
+    event.preventDefault();
     let employeeUserData = {
-      ...this.state,
+      ...this.state.loginData,
     };
     try {
       const employeeUser = await loginUserRequest(employeeUserData);

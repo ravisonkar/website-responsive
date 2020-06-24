@@ -38,20 +38,19 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
       <div>
         <AddFormEmployee
           onCancelClick={this.onCancelClick}
-          onMychangeHandler={this.onMychangeHandler}
+          changeHandler={this.changeHandler}
           employeeUsers={this.state.employeeUsers}
-          onMySubmitHandler={this.onMySubmitHandler}
+          submitHandler={this.submitHandler}
           searchEventHandler={this.searchEventHandler}
           isButtonDisabled={this.state.isButtonDisabled}
         ></AddFormEmployee>
       </div>
     );
   }
-
-  onMySubmitHandler = async (event: any) => {
+  submitHandler = async (event: any) => {
     event.persist();
     let data = {
-      ...this.state,
+      ...this.state.employeeUsers,
     };
     try {
       let id: any = this.state.employeeUsers.id;
@@ -90,15 +89,12 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     }
   };
 
-  onMychangeHandler = (event: any) => {
+  changeHandler = (event: any) => {
     this.setState({
       employeeUsers: {
         ...this.state.employeeUsers,
         [event.target.name]: event.target.value,
       },
-      [event.target.name]: event.target.value,
-      shouldRedirectToEmployeeEventForm: false,
-      isButtonDisabled: true,
     });
     this.buttonDisabledEnable();
   };
@@ -114,7 +110,6 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
       const employeeUser = await editEmployeeUserFormRequest(id);
       this.setState({ employeeUsers: employeeUser });
       this.buttonDisabledEnable();
-      this.onMychangeHandler('');
     } catch (error) {
       console.log(error);
     }

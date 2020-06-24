@@ -33,19 +33,20 @@ const LoginForm = ({
 }: LoginProps) => {
   return (
     <div>
-      <Form>
-        <Container>
-          <Row>
+      <Container>
+        <Row>
+          <Form>
             <div className="mx-auto text-center g">
               <img className="img mb-3" src="assets/image/logo.png" />
               <div className="card a p-lg-5 p-md-4 p-3 shadow-lg">
                 <Col>
-                  <Form.Group controlId="formBasicEmail">
+                  <Form.Group>
                     <Form.Control
                       type="email"
                       placeholder="Email"
                       onChange={handleChange}
                       name="user_name"
+                      autoComplete="off"
                     />
                   </Form.Group>
                   <InputGroup className="mb-3">
@@ -55,6 +56,7 @@ const LoginForm = ({
                       onChange={handleChange}
                       name="password"
                       type={showPassword ? 'text' : 'password'}
+                      autoComplete="off"
                     />
                     <InputGroup.Append>
                       <InputGroup.Text
@@ -72,7 +74,6 @@ const LoginForm = ({
                 </Col>
                 <Col>
                   <Button
-                    variant="primary"
                     className="float-right mt-3"
                     onClick={loginSubmitHandler}
                   >
@@ -94,9 +95,9 @@ const LoginForm = ({
                 </div> */}
               </div>
             </div>
-          </Row>
-        </Container>
-      </Form>
+          </Form>
+        </Row>
+      </Container>
     </div>
   );
 };

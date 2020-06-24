@@ -7,8 +7,8 @@ import 'react-dropdown/style.css';
 type EventHandler = (event: any) => void;
 interface AddFormEmployeeProps {
   onCancelClick: VoidHandler;
-  onMychangeHandler: EventHandler;
-  onMySubmitHandler: EventHandler;
+  changeHandler: EventHandler;
+  submitHandler: EventHandler;
   searchEventHandler: EventHandler;
   employeeUsers: ITeam;
   isButtonDisabled: boolean;
@@ -16,8 +16,8 @@ interface AddFormEmployeeProps {
 
 const AddFormEmployee = ({
   onCancelClick,
-  onMychangeHandler,
-  onMySubmitHandler,
+  changeHandler,
+  submitHandler,
   searchEventHandler,
   employeeUsers,
   isButtonDisabled,
@@ -34,9 +34,9 @@ const AddFormEmployee = ({
             <Form.Control
               type="text"
               placeholder="First Name"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="first_name"
-              value={employeeUsers.first_name ? employeeUsers.first_name : ''}
+              value={employeeUsers.first_name}
               autoComplete="off"
             />
           </Form.Group>
@@ -45,37 +45,37 @@ const AddFormEmployee = ({
             <Form.Control
               type="text"
               placeholder="Last Name"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="last_name"
-              value={employeeUsers.last_name ? employeeUsers.last_name : ''}
+              value={employeeUsers.last_name}
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Email Address</Form.Label>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="Email Address"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="email"
-              value={employeeUsers.email ? employeeUsers.email : ''}
+              value={employeeUsers.email}
             />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Phone Number"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="phone"
-              value={employeeUsers.phone ? employeeUsers.phone : ''}
+              value={employeeUsers.phone}
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Description</Form.Label>
             <Form.Control
               placeholder="text"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="description"
               value={employeeUsers.description ? employeeUsers.description : ''}
             />
@@ -85,15 +85,15 @@ const AddFormEmployee = ({
             <Form.Control
               type="text"
               placeholder="Address"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="address"
-              value={employeeUsers.address ? employeeUsers.address : ''}
+              value={employeeUsers.address}
             />
           </Form.Group>
           <Button
             variant="primary"
             className="mr-3"
-            onClick={onMySubmitHandler}
+            onClick={submitHandler}
             disabled={isButtonDisabled}
           >
             Submit
