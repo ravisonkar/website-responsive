@@ -40,15 +40,6 @@
       "description": "jhguihiu",
       "address": "hgvfjhg",
       "id": 4
-    },
-    {
-      "first_name": "kjdngkjdf",
-      "last_name": "adcdaadcdadc",
-      "email": "dcadc",
-      "phone": "3456789",
-      "description": "sdac",
-      "address": "adchg",
-      "id": 6
     }
   ],
   "add": [
@@ -104,6 +95,15 @@
       "description": "6fiuiko[oijoiu",
       "gender": "Male",
       "id": 6
+    },
+    {
+      "first_name": "jeetnew1",
+      "last_name": "testBU1",
+      "phone": "ghcghhg",
+      "address": "uhguhgyg",
+      "description": "6fiuiko[oijoiu",
+      "gender": "Male",
+      "id": 7
     }
   ],
   "login": [
@@ -2157,6 +2157,29 @@
       "password": "fvsdsfvsfd",
       "user_name": "msv dfddfcd",
       "id": 378
+    },
+    {
+      "id": 379
+    },
+    {
+      "user_name": "jhdbs",
+      "password": "ahgvasgh",
+      "id": 380
+    },
+    {
+      "user_name": "jhdbs",
+      "password": "ahgvasgh",
+      "id": 381
+    },
+    {
+      "user_name": "jhdbs",
+      "password": "ahgvasgh",
+      "id": 382
+    },
+    {
+      "user_name": "fgr",
+      "password": "shjfbs",
+      "id": 383
     }
   ]
 }

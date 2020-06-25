@@ -2,6 +2,7 @@ import React from 'react';
 import AddFormEmployee from '../Component/AddFormEmployee';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
+import { IFormError } from '../classes/IFormError';
 import { ITeam } from '../classes/ITeam';
 import { toast } from 'react-toastify';
 import {
@@ -13,6 +14,7 @@ interface EmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   employeeUsers: ITeam;
   isButtonDisabled: boolean;
+  first_name_error: string;
 }
 
 class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
@@ -20,6 +22,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
     shouldRedirectToEmployeeEventForm: false,
     employeeUsers: {} as ITeam,
     isButtonDisabled: true,
+    first_name_error: '',
   };
 
   componentDidMount() {
@@ -43,29 +46,52 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
           submitHandler={this.submitHandler}
           searchEventHandler={this.searchEventHandler}
           isButtonDisabled={this.state.isButtonDisabled}
+          first_name_error={this.state.first_name_error}
         ></AddFormEmployee>
       </div>
     );
   }
+
+  validation = () => {
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      address,
+      description,
+    } = this.state.employeeUsers;
+    if (!first_name) {
+      console.log(!first_name);
+      let first_name_error = 'first name is required';
+      this.setState({ first_name_error });
+      return false;
+    }
+    return true;
+  };
+
   submitHandler = async (event: any) => {
     event.persist();
     let data = {
       ...this.state.employeeUsers,
     };
     try {
-      let id: any = this.state.employeeUsers.id;
-      if (id) {
-        await updateEmployeeUserFormRequest(data, id);
-        toast.success('User update successfully', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
-        this.setState({ shouldRedirectToEmployeeEventForm: true });
-      } else {
-        await addEmployeeUserFormRequest(data);
-        toast.success('User added successfully', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
-        this.setState({ shouldRedirectToEmployeeEventForm: true });
+      let isValid = this.validation();
+      if (isValid) {
+        let id: any = this.state.employeeUsers.id;
+        if (id) {
+          await updateEmployeeUserFormRequest(data, id);
+          toast.success('User update successfully', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+          this.setState({ shouldRedirectToEmployeeEventForm: true });
+        } else {
+          await addEmployeeUserFormRequest(data);
+          toast.success('User added successfully', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+          this.setState({ shouldRedirectToEmployeeEventForm: true });
+        }
       }
     } catch (error) {
       console.error(error);
@@ -73,7 +99,6 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
   };
 
   buttonDisabledEnable = () => {
-    console.log(this.state.employeeUsers);
     const {
       first_name,
       last_name,
@@ -96,6 +121,7 @@ class AddEmployee extends React.Component<RouteComponentProps, EmployeeState> {
         [event.target.name]: event.target.value,
       },
     });
+
     this.buttonDisabledEnable();
   };
 

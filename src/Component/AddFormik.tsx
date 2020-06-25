@@ -29,7 +29,10 @@ const validationSchema = Yup.object().shape({
   first_name: Yup.string().trim().required('First Name is required'),
   last_name: Yup.string().trim().required('Last Name is required'),
   gender: Yup.string().trim().required('Email is required'),
-  phone: Yup.string().trim().required('Phone Number is required'),
+  phone: Yup.string()
+    .trim()
+    .required('Phone Number is required')
+    .matches(/^[0-9]\d{9}$/, 'number is invalid'),
   address: Yup.string().trim().required('Address is required'),
   description: Yup.string().trim().required('Description Name is required'),
 });

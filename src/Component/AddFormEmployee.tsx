@@ -12,6 +12,7 @@ interface AddFormEmployeeProps {
   searchEventHandler: EventHandler;
   employeeUsers: ITeam;
   isButtonDisabled: boolean;
+  first_name_error: string;
 }
 
 const AddFormEmployee = ({
@@ -21,6 +22,7 @@ const AddFormEmployee = ({
   searchEventHandler,
   employeeUsers,
   isButtonDisabled,
+  first_name_error,
 }: AddFormEmployeeProps) => {
   return (
     <Row>
@@ -39,6 +41,7 @@ const AddFormEmployee = ({
               value={employeeUsers.first_name}
               autoComplete="off"
             />
+            <div>{first_name_error ? first_name_error : ''}</div>
           </Form.Group>
           <Form.Group>
             <Form.Label>Last Name</Form.Label>

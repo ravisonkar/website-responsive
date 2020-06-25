@@ -8,6 +8,7 @@ type EventHandler = (event: any) => void;
 interface ILoginState {
   loginData: ILogin;
   showPassword: boolean;
+  isButtonDisabled: boolean;
 }
 
 interface ILoginProps {
@@ -18,6 +19,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
   state = {
     loginData: {} as ILogin,
     showPassword: false,
+    isButtonDisabled: true,
   };
 
   render() {
@@ -30,10 +32,20 @@ class Login extends React.Component<ILoginProps, ILoginState> {
           onShowPassword={this.onShowPassword}
           Responsefacebbokhandler={this.Responsefacebbokhandler}
           responseGoogleHandler={this.responseGoogleHandler}
+          isButtonDisabled={this.state.isButtonDisabled}
         ></LoginForm>
       </div>
     );
   }
+
+  buttonDisabledEnable = () => {
+    const { user_name, password } = this.state.loginData;
+    if (user_name && password) {
+      this.setState({ isButtonDisabled: false });
+    } else {
+      this.setState({ isButtonDisabled: true });
+    }
+  };
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -43,6 +55,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
         [event.target.name]: event.target.value,
       },
     });
+    this.buttonDisabledEnable();
   };
 
   loginSubmitHandler = async (event: any) => {

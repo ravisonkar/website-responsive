@@ -21,6 +21,7 @@ interface LoginProps {
   onShowPassword: ShowHandler;
   Responsefacebbokhandler: EventHandler;
   responseGoogleHandler: EventHandler;
+  isButtonDisabled: boolean;
 }
 
 const LoginForm = ({
@@ -30,12 +31,13 @@ const LoginForm = ({
   onShowPassword,
   Responsefacebbokhandler,
   responseGoogleHandler,
+  isButtonDisabled,
 }: LoginProps) => {
   return (
     <div>
-      <Container>
-        <Row>
-          <Form>
+      <Form>
+        <Container>
+          <Row>
             <div className="mx-auto text-center g">
               <img className="img mb-3" src="assets/image/logo.png" />
               <div className="card a p-lg-5 p-md-4 p-3 shadow-lg">
@@ -76,6 +78,7 @@ const LoginForm = ({
                   <Button
                     className="float-right mt-3"
                     onClick={loginSubmitHandler}
+                    disabled={isButtonDisabled}
                   >
                     Login
                   </Button>
@@ -95,9 +98,9 @@ const LoginForm = ({
                 </div> */}
               </div>
             </div>
-          </Form>
-        </Row>
-      </Container>
+          </Row>
+        </Container>
+      </Form>
     </div>
   );
 };
