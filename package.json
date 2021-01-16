@@ -1,6 +1,9 @@
 {
   "name": "website-responsive",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.15.3"
+  },
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
