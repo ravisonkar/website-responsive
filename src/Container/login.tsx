@@ -7,7 +7,7 @@ import { withCookies, Cookies } from 'react-cookie';
 import { RouteComponentProps } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ilogin from '../classes/Ilogin';
+
 
 interface iloginstate {
   username: string;

@@ -9,7 +9,6 @@ import Select from 'react-select';
 import Dropdown from 'react-dropdown';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import IOption from '../classes/IEmploye';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;
