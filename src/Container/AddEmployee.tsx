@@ -10,7 +10,7 @@ import {
   editEmployeeUserFormRequest,
   updateEmployeeUserFormRequest,
 } from '../http/userForm';
-interface EmployeeState {
+interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   employeeUsers: ITeam;
   isButtonDisabled: boolean;
