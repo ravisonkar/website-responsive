@@ -19,7 +19,7 @@ interface IEmployeeState {
   employeUsers: IEmployee[];
 }
 
-class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
+class EmployeeList extends React.Component<RouteComponentProps, IEmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
     employeUsers: [] as IEmployee[],
