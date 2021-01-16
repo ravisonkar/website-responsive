@@ -5,7 +5,7 @@ import { ITeam } from '../classes/ITeam';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;
-interface AddFormEmployeeProps {
+interface IAddFormEmployeeProps {
   onCancelClick: VoidHandler;
   changeHandler: EventHandler;
   submitHandler: EventHandler;
@@ -23,7 +23,7 @@ const AddFormEmployee = ({
   employeeUsers,
   isButtonDisabled,
   first_name_error,
-}: AddFormEmployeeProps) => {
+}: IAddFormEmployeeProps) => {
   return (
     <Row>
       <Container>
@@ -38,8 +38,12 @@ const AddFormEmployee = ({
               placeholder="First Name"
               onChange={changeHandler}
               name="first_name"
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               value={employeeUsers.first_name}
               autoComplete="off"
+=======
+              value={employeeUser.first_name}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
             <div>{first_name_error ? first_name_error : ''}</div>
           </Form.Group>
@@ -50,7 +54,11 @@ const AddFormEmployee = ({
               placeholder="Last Name"
               onChange={changeHandler}
               name="last_name"
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               value={employeeUsers.last_name}
+=======
+              value={employeeUser.last_name}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
           </Form.Group>
           <Form.Group>
@@ -60,7 +68,11 @@ const AddFormEmployee = ({
               placeholder="Email Address"
               onChange={changeHandler}
               name="email"
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               value={employeeUsers.email}
+=======
+              value={employeeUser.email}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
           </Form.Group>
 
@@ -71,16 +83,27 @@ const AddFormEmployee = ({
               placeholder="Phone Number"
               onChange={changeHandler}
               name="phone"
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               value={employeeUsers.phone}
+=======
+              value={employeeUser.phone}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Description</Form.Label>
             <Form.Control
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               placeholder="text"
               onChange={changeHandler}
               name="description"
               value={employeeUsers.description ? employeeUsers.description : ''}
+=======
+              placeholder="Description"
+              onChange={onMychangeHandler}
+              name="description"
+              value={employeeUser.description}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
           </Form.Group>
           <Form.Group>
@@ -90,7 +113,11 @@ const AddFormEmployee = ({
               placeholder="Address"
               onChange={changeHandler}
               name="address"
+<<<<<<< HEAD:src/Component/AddFormEmployee.tsx
               value={employeeUsers.address}
+=======
+              value={employeeUser.address}
+>>>>>>> master:src/Component/AddFormEmploye.tsx
             />
           </Form.Group>
           <Button

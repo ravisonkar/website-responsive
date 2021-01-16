@@ -2,6 +2,14 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { Row, Col, Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
+=======
+import {
+  fetchUserDataRequest,
+  DeleteEmployeeUserDataRequest,
+} from '../http/employeeUser';
+import IEmploye from '../classes/IEmploye';
+>>>>>>> master:src/Container/EmployeList.tsx
 import {
   fetchEmployeesUserDataRequest,
   DeleteEmployeeUserDataRequest,
@@ -14,19 +22,27 @@ import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 
-interface TeamState {
+interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
   employeUsers: IEmployee[];
 }
 
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
 class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
+=======
+class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
+>>>>>>> master:src/Container/EmployeList.tsx
   state = {
     shouldRedirectToEmployeeEventForm: false,
     employeUsers: [] as IEmployee[],
   };
 
   componentDidMount() {
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
     this.getEmployeesUserData();
+=======
+    this.getEmployeeUserData();
+>>>>>>> master:src/Container/EmployeList.tsx
   }
 
   render() {
@@ -88,7 +104,11 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
                         <span
                           className="delete"
                           onClick={(e) =>
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
                             this.deleteEmployeeUserData(e, employeUser.id)
+=======
+                            this.deleteEmoloyeeUserData(e, employeUser.id)
+>>>>>>> master:src/Container/EmployeList.tsx
                           }
                         >
                           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -105,6 +125,7 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
     );
   }
 
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
   deleteEmployeeUserData = async (event: any, id: any) => {
     event.persist();
     try {
@@ -113,12 +134,23 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
       this.getEmployeesUserData();
+=======
+  deleteEmoloyeeUserData = async (event: any, id: any) => {
+    event.persist();
+    try {
+      await DeleteEmployeeUserDataRequest(id);
+      this.getEmployeeUserData();
+>>>>>>> master:src/Container/EmployeList.tsx
     } catch (error) {
       console.error(error);
     }
   };
 
+<<<<<<< HEAD:src/Container/EmployeeList.tsx
   getEmployeesUserData = async () => {
+=======
+  getEmployeeUserData = async () => {
+>>>>>>> master:src/Container/EmployeList.tsx
     try {
       let employeUsers = await fetchEmployeesUserDataRequest();
       employeUsers = employeUsers.map((employeUser: IEmployee) => {
@@ -129,7 +161,6 @@ class EmployeeList extends React.Component<RouteComponentProps, TeamState> {
 
         return employeUser;
       });
-      console.log(employeUsers);
       this.setState({ employeUsers });
     } catch (error) {
       console.error(error.response);

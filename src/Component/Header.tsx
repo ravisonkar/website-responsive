@@ -4,10 +4,10 @@ import NavbarToggle from 'react-bootstrap/NavbarToggle';
 
 import NavbarCollapse from 'react-bootstrap/NavbarCollapse';
 import { Link } from 'react-router-dom';
-interface HeaderProps {
+interface IHeaderProps {
   currentPath: string;
 }
-const Header = ({ currentPath }: HeaderProps) => {
+const Header = ({ currentPath }: IHeaderProps) => {
   return (
     <Navbar bg="transparent" expand="lg">
       <Link to="/" className="text-dark mr-3">
