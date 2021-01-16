@@ -2,7 +2,6 @@
   "customers": [
     {
       "shouldRedirectToEmployeeEventForm": false,
-<<<<<<< HEAD
       "employeeUsers": {},
       "first_name": "sachin",
       "last_name": "yadav",
@@ -113,75 +112,6 @@
       "description": "sfsd",
       "gender": "Male",
       "id": 9
-=======
-      "employeeUser": {
-        "shouldRedirectToEmployeeEventForm": false,
-        "employeeUser": {
-          "shouldRedirectToEmployeeEventForm": false,
-          "employeeUser": {
-            "shouldRedirectToEmployeeEventForm": false,
-            "employeeUser": {
-              "shouldRedirectToEmployeeEventForm": false,
-              "employeeUser": {
-                "shouldRedirectToEmployeeEventForm": false,
-                "employeeUser": {
-                  "first_name": "sai",
-                  "last_name": "gita",
-                  "email": "saigita@theprocedure.in",
-                  "phone": "9776545444",
-                  "address": "mumbai",
-                  "description": "employee",
-                  "id": 1
-                },
-                "first_name": "said",
-                "last_name": "gitac",
-                "id": 1
-              },
-              "last_name": "gita",
-              "email": "saigita@theprocedure.in",
-              "phone": "987654321",
-              "description": "employee",
-              "address": "mumbai",
-              "id": 1
-            },
-            "first_name": "sai",
-            "id": 1
-          },
-          "last_name": "gita",
-          "email": "saigita@theprocedure.in",
-          "phone": "987654321",
-          "description": "employee",
-          "address": "mumbai",
-          "first_name": "saii",
-          "id": 1
-        },
-        "first_name": "saiif",
-        "last_name": "gitaf",
-        "email": "saigita@theprocedure.ing",
-        "phone": "987654321d",
-        "description": "employeer",
-        "address": "mumbaid",
-        "id": 1
-      },
-      "first_name": "saii",
-      "last_name": "gita",
-      "email": "saigita@theprocedure.in",
-      "phone": "987654321",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 1
-    },
-    {
-      "shouldRedirectToEmployeeEventForm": false,
-      "employeeUser": {},
-      "first_name": "sachinn",
-      "last_name": "yadav",
-      "email": "sachin@theporcedecure.in",
-      "phone": "987654321",
-      "description": "employee",
-      "address": "mumbai",
-      "id": 2
->>>>>>> master
     }
   ],
   "login": [
