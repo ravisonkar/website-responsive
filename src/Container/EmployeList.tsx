@@ -6,7 +6,7 @@ import {
   fetchUserDataRequest,
   DeleteEmployeeUserDataRequest,
 } from '../http/employeeUser';
-import IEmploye from '../classes/IEmploye';
+import IEmploye from '../classes/iEmploye';
 import {
   faPencilAlt,
   faPlus,
