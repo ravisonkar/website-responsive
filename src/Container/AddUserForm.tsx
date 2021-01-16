@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import IEmployee from '../classes/iEmploye';
+import IEmploye from '../classes/iEmploye';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button';
 
 
 const AddUserForm = () => {
-  const [values, setValues] = useState({} as IEmployee);
+  const [values, setValues] = useState({} as IEmploye);
 
   const  id  = useParams();
 
