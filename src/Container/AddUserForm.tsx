@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/Button';
 const AddUserForm = () => {
   const [values, setValues] = useState({} as IEmployee);
 
-  const  id  = useParams();ss
+  const  id  = useParams();
 
   const handleChange = (event: any) => {
     event.persist();
