@@ -55,7 +55,6 @@ class Login extends React.Component<ILoginProps, ILoginState> {
         [event.target.name]: event.target.value,
       },
     });
-    this.buttonDisabledEnable();
   };
 
   loginSubmitHandler = async (event: any) => {
