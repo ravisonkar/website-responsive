@@ -1,104 +1,87 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import { useHistory, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { withCookies, Cookies } from 'react-cookie';
-import { RouteComponentProps } from 'react-router';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import LoginForm from '../Component/LoginForm';
+import { loginUserRequest } from '../http/userForm';
+import ILogin from '../classes/ILogin';
 
+type EventHandler = (event: any) => void;
 
-interface iloginstate {
-  username: string;
-  password: string;
-  usertype: string;
+interface ILoginState {
+  loginData: ILogin;
+  showPassword: boolean;
+  isButtonDisabled: boolean;
 }
 
-interface ISessionProps {
-  cookies: Cookies;
-  children?: React.ReactNode;
+interface ILoginProps {
+  saveUserHandler: EventHandler;
 }
 
-class Login extends React.PureComponent<
-  ISessionProps & RouteComponentProps,
-  iloginstate
-> {
+class Login extends React.Component<ILoginProps, ILoginState> {
   state = {
-    username: '',
-    password: '',
-    usertype: '',
+    loginData: {} as ILogin,
+    showPassword: false,
+    isButtonDisabled: true,
   };
 
   render() {
     return (
-      <Row>
-        <Container>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Enter firstname</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter firstname"
-                onChange={this.handleChange}
-                name="username"
-                value={this.state.username}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Enter lastname</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter email"
-                onChange={this.handleChange}
-                name="password"
-                value={this.state.password}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="name"
-                placeholder="Enter email"
-                onChange={this.handleChange}
-                name="usertype"
-                value={this.state.usertype}
-              />
-            </Form.Group>
-
-            <Button
-              variant="primary"
-              type="submit"
-              className="mr-3"
-              onClick={this.handleSubmit}
-            >
-              Submit
-            </Button>
-          </Form>
-        </Container>
-      </Row>
+      <div>
+        <LoginForm
+          loginSubmitHandler={this.loginSubmitHandler}
+          handleChange={this.handleChange}
+          showPassword={this.state.showPassword}
+          onShowPassword={this.onShowPassword}
+          Responsefacebbokhandler={this.Responsefacebbokhandler}
+          responseGoogleHandler={this.responseGoogleHandler}
+          isButtonDisabled={this.state.isButtonDisabled}
+        ></LoginForm>
+      </div>
     );
   }
 
+  buttonDisabledEnable = () => {
+    const { user_name, password } = this.state.loginData;
+    if (user_name && password) {
+      this.setState({ isButtonDisabled: false });
+    } else {
+      this.setState({ isButtonDisabled: true });
+    }
+  };
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.persist();
+    event.preventDefault();
     this.setState({
-      ...this.state,
-      [event.target.name]: event.target.value,
+      loginData: {
+        ...this.state.loginData,
+        [event.target.name]: event.target.value,
+      },
     });
   };
 
-  handleSubmit = (event: any) => {
-    event.persist();
-    let data = {
-      ...this.state,
+  loginSubmitHandler = async (event: any) => {
+    event.preventDefault();
+    let employeeUserData = {
+      ...this.state.loginData,
     };
-    axios.post(`http://localhost:5000/login`, data);
-    this.saveUserhandler(this.state.username);
+    try {
+      const employeeUser = await loginUserRequest(employeeUserData);
+      this.props.saveUserHandler(employeeUser);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  saveUserhandler = (name: string) => {
-    this.props.cookies.set('user', name, { path: '/' });
+  onShowPassword = () => {
+    this.setState({
+      showPassword: !this.state.showPassword,
+    });
+  };
+
+  Responsefacebbokhandler = (response: any) => {
+    this.props.saveUserHandler(response);
+  };
+
+  responseGoogleHandler = (response: any) => {
+    console.log(response);
   };
 }
-export default withCookies(Login);
+export default Login;

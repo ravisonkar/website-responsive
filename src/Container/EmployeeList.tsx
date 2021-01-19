@@ -1,37 +1,32 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { Row, Col, Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import {
-  fetchUserDataRequest,
+  fetchEmployeesUserDataRequest,
   DeleteEmployeeUserDataRequest,
-} from '../http/employeeUser';
-import IEmploye from '../classes/iEmploye';
-import {
-  faPencilAlt,
-  faPlus,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+} from '../http/userForm';
+import IEmployee from '../classes/IEmployee';
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import { Redirect } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { toast } from 'react-toastify';
 
 interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
-  employeUsers: IEmploye[];
+  employeUsers: IEmployee[];
 }
 
-class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
+class EmployeeList extends React.Component<RouteComponentProps, IEmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
-    employeUsers: [] as IEmploye[],
+    employeUsers: [] as IEmployee[],
   };
 
   componentDidMount() {
-    this.getEmployeeUserData();
+    this.getEmployeesUserData();
   }
 
   render() {
@@ -91,8 +86,9 @@ class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
                       </td>
                       <td>
                         <span
+                          className="delete"
                           onClick={(e) =>
-                            this.deleteEmoloyeeUserData(e, employeUser.id)
+                            this.deleteEmployeeUserData(e, employeUser.id)
                           }
                         >
                           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
@@ -109,24 +105,28 @@ class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
     );
   }
 
-  deleteEmoloyeeUserData = async (event: any, id: any) => {
+  deleteEmployeeUserData = async (event: any, id: any) => {
     event.persist();
     try {
       await DeleteEmployeeUserDataRequest(id);
-      this.getEmployeeUserData();
+      toast.success('User Delete successfully', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+      this.getEmployeesUserData();
     } catch (error) {
       console.error(error);
     }
   };
 
-  getEmployeeUserData = async () => {
+  getEmployeesUserData = async () => {
     try {
-      let employeUsers = await fetchUserDataRequest();
-      employeUsers = employeUsers.map((employeUser: IEmploye) => {
+      let employeUsers = await fetchEmployeesUserDataRequest();
+      employeUsers = employeUsers.map((employeUser: IEmployee) => {
         if (employeUser) {
           employeUser.name =
             employeUser.first_name + ' ' + employeUser.last_name;
         }
+
         return employeUser;
       });
       this.setState({ employeUsers });
@@ -135,4 +135,4 @@ class EmployeList extends React.Component<RouteComponentProps, IEmployeeState> {
     }
   };
 }
-export default EmployeList;
+export default EmployeeList;

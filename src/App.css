@@ -36,3 +36,32 @@ li {
 .made-by {
   margin-left: 30%;
 }
+.g {
+  margin-top: 7%;
+}
+.a {
+  width: 600px;
+}
+.img {
+  height: 90px;
+}
+.main {
+  background-color: lightgray;
+  height: 100vh;
+}
+label {
+  margin-top: 15px;
+}
+.inp {
+  width: 300px;
+  padding: 6px;
+}
+.pic {
+  width: 70px;
+}
+.delete {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: no-drop;
+}

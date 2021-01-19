@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import IEmploye from '../classes/iEmploye';
+import IEmployee from '../classes/IEmployee';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,15 +12,14 @@ import { useParams, Redirect } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-
 const AddUserForm = () => {
-  const [values, setValues] = useState({} as IEmploye);
+  const [values, setValues] = useState({} as IEmployee);
 
-  const  id  = useParams();
+  const  id  = useParams();ss
 
   const handleChange = (event: any) => {
     event.persist();
-    setValues((values) => ({
+    setValues((values:any) => ({
       ...values,
       [event.target.name]: event.target.value,
     }));

@@ -1,31 +1,33 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+import { Row, Container, Form, Button } from 'react-bootstrap';
 import { VoidHandler } from '../shared/types';
-import ITeam from '../classes/ITeam';
+import { ITeam } from '../classes/ITeam';
 import { RouteComponentProps } from 'react-router';
 import Select from 'react-select';
 import Dropdown from 'react-dropdown';
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 import 'react-dropdown/style.css';
 
 type EventHandler = (event: any) => void;
 interface IAddFormEmployeeProps {
   onCancelClick: VoidHandler;
-  onMychangeHandler: EventHandler;
-  onMySubmitHandler: EventHandler;
+  changeHandler: EventHandler;
+  submitHandler: EventHandler;
   searchEventHandler: EventHandler;
-  employeeUser: ITeam;
+  employeeUsers: ITeam;
+  isButtonDisabled: boolean;
+  first_name_error: string;
 }
 
 const AddFormEmployee = ({
   onCancelClick,
-  onMychangeHandler,
-  onMySubmitHandler,
+  changeHandler,
+  submitHandler,
   searchEventHandler,
-  employeeUser,
+  employeeUsers,
+  isButtonDisabled,
+  first_name_error,
 }: IAddFormEmployeeProps) => {
   return (
     <Row>
@@ -34,70 +36,73 @@ const AddFormEmployee = ({
           <div className="mb-3">
             <h3>Enter The Details</h3>
           </div>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="First Name"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="first_name"
-              value={employeeUser.first_name}
+              value={employeeUsers.first_name}
+              autoComplete="off"
             />
+            <div>{first_name_error ? first_name_error : ''}</div>
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Last Name"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="last_name"
-              value={employeeUser.last_name}
+              value={employeeUsers.last_name}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Email Address</Form.Label>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="Email Address"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="email"
-              value={employeeUser.email}
+              value={employeeUsers.email}
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Phone Number"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="phone"
-              value={employeeUser.phone}
+              value={employeeUsers.phone}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Description</Form.Label>
             <Form.Control
-              placeholder="Description"
-              onChange={onMychangeHandler}
+              placeholder="text"
+              onChange={changeHandler}
               name="description"
-              value={employeeUser.description}
+              value={employeeUsers.description ? employeeUsers.description : ''}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Address</Form.Label>
             <Form.Control
               type="text"
               placeholder="Address"
-              onChange={onMychangeHandler}
+              onChange={changeHandler}
               name="address"
-              value={employeeUser.address}
+              value={employeeUsers.address}
             />
           </Form.Group>
           <Button
             variant="primary"
             className="mr-3"
-            onClick={onMySubmitHandler}
+            onClick={submitHandler}
+            disabled={isButtonDisabled}
           >
             Submit
           </Button>

@@ -1,31 +1,34 @@
 import React from 'react';
-import AddFormEmployee from '../Component/AddFormEmploye';
+import AddFormEmployee from '../Component/AddFormEmployee';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
-import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ITeam from '../classes/ITeam';
-import Container from 'react-bootstrap/Container';
+import { IFormError } from '../classes/IFormError';
+import { ITeam } from '../classes/ITeam';
+import { toast } from 'react-toastify';
 import {
   addEmployeeUserFormRequest,
   editEmployeeUserFormRequest,
-  updateERmployeeUserFormRequest,
-} from '../http/employeeUser';
+  updateEmployeeUserFormRequest,
+} from '../http/userForm';
 interface IEmployeeState {
   shouldRedirectToEmployeeEventForm: boolean;
-  employeeUser: ITeam;
+  employeeUsers: ITeam;
+  isButtonDisabled: boolean;
+  first_name_error: string;
 }
 
 class AddEmployee extends React.Component<RouteComponentProps, IEmployeeState> {
   state = {
     shouldRedirectToEmployeeEventForm: false,
-    employeeUser: {} as ITeam,
+    employeeUsers: {} as ITeam,
+    isButtonDisabled: true,
+    first_name_error: '',
   };
 
   componentDidMount() {
     const { id }: any = this.props.match?.params;
     if (id) {
-      this.editEmplpoyeUserData(id);
+      this.editEmplpoyeeUserData(id);
     }
   }
 
@@ -38,41 +41,88 @@ class AddEmployee extends React.Component<RouteComponentProps, IEmployeeState> {
       <div>
         <AddFormEmployee
           onCancelClick={this.onCancelClick}
-          onMychangeHandler={this.onMychangeHandler}
-          employeeUser={this.state.employeeUser}
-          onMySubmitHandler={this.onMySubmitHandler}
+          changeHandler={this.changeHandler}
+          employeeUsers={this.state.employeeUsers}
+          submitHandler={this.submitHandler}
           searchEventHandler={this.searchEventHandler}
+          isButtonDisabled={this.state.isButtonDisabled}
+          first_name_error={this.state.first_name_error}
         ></AddFormEmployee>
       </div>
     );
   }
 
-  onMySubmitHandler = async (event: any) => {
+  validation = () => {
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      address,
+      description,
+    } = this.state.employeeUsers;
+    if (!first_name) {
+      console.log(!first_name);
+      let first_name_error = 'first name is required';
+      this.setState({ first_name_error });
+      return false;
+    }
+    return true;
+  };
+
+  submitHandler = async (event: any) => {
     event.persist();
     let data = {
-      ...this.state,
+      ...this.state.employeeUsers,
     };
     try {
-      let { id }: any = this.props.match?.params;
-      if (id) {
-        await updateERmployeeUserFormRequest(data, id);
-        this.setState({ shouldRedirectToEmployeeEventForm: true });
-      } else {
-        await addEmployeeUserFormRequest(data);
-        this.setState({ shouldRedirectToEmployeeEventForm: true });
+      let isValid = this.validation();
+      if (isValid) {
+        let id: any = this.state.employeeUsers.id;
+        if (id) {
+          await updateEmployeeUserFormRequest(data, id);
+          toast.success('User update successfully', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+          this.setState({ shouldRedirectToEmployeeEventForm: true });
+        } else {
+          await addEmployeeUserFormRequest(data);
+          toast.success('User added successfully', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+          this.setState({ shouldRedirectToEmployeeEventForm: true });
+        }
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-  onMychangeHandler = (event: any) => {
-    event.persist();
+  buttonDisabledEnable = () => {
+    const {
+      first_name,
+      last_name,
+      email,
+      phone,
+      address,
+      description,
+    } = this.state.employeeUsers;
+    if (first_name && last_name && email && phone && address && description) {
+      this.setState({ isButtonDisabled: false });
+    } else {
+      this.setState({ isButtonDisabled: true });
+    }
+  };
+
+  changeHandler = (event: any) => {
     this.setState({
-      employeeUser: { ...this.state.employeeUser },
-      [event.target.name]: event.target.value,
-      shouldRedirectToEmployeeEventForm: false,
+      employeeUsers: {
+        ...this.state.employeeUsers,
+        [event.target.name]: event.target.value,
+      },
     });
+
+    this.buttonDisabledEnable();
   };
 
   onCancelClick = () => {
@@ -81,11 +131,11 @@ class AddEmployee extends React.Component<RouteComponentProps, IEmployeeState> {
     });
   };
 
-  editEmplpoyeUserData = async (id: any) => {
+  editEmplpoyeeUserData = async (id: any) => {
     try {
-      const employeUser = await editEmployeeUserFormRequest(id);
-      console.log(employeUser);
-      this.setState({ employeeUser: employeUser });
+      const employeeUser = await editEmployeeUserFormRequest(id);
+      this.setState({ employeeUsers: employeeUser });
+      this.buttonDisabledEnable();
     } catch (error) {
       console.log(error);
     }
